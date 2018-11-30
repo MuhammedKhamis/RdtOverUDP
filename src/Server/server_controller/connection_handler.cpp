@@ -13,7 +13,7 @@ connection_handler::handle_client()
 	// 02. disassemble file into packets
 
 	// 03. implement RDT strategy
-	rdt_strategy *strategy = new stop_and_wait();
-	rdt_strategy *strategy = new selective_repeat();
-	strategy.implement();
+	rdt_strategy *strategy1 = new stop_and_wait();
+	rdt_strategy *strategy2 = new selective_repeat();
+	strategy1->implement();
 }

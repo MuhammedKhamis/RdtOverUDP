@@ -5,6 +5,7 @@
 /******************************************/
 #include <vector>
 #include <string>
+#include "rdt_strategy.h"
 using namespace std;
 
 /* class definition */

@@ -20,7 +20,7 @@ class rdt_strategy
 		// constructor
 		rdt_strategy();
 		// interface methods
-		virtual void implement();
+		virtual void implement() = 0;
 };
 
 #endif 

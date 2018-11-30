@@ -1,13 +1,14 @@
 /* import libraries */
 /*************************************/
-#include "./client_controller/client_controller.h"
+#include <bits/stdc++.h>
 
+using namespace std;
 /* main function */
 /*************************************/
 int
 main(int argc, char const *argv[]) 
 { 
     
-    cout << "hello from client";
+    cout << "hello from server";
     return 0; 
 }

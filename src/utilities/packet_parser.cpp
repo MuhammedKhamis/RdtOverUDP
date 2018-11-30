@@ -1,10 +1,11 @@
-#include "map_file_parser.h"
+#include "packet_parser.h"
+
 #define LSH_TOK_DELIM " \t\r\n();" // delimiter used in string tokenization
 
 /* tokenization function */
 /******************************************/
 void
-map_file_parser::tokenize(string target_line, vector<string> *result_tokens)
+packet_parser::tokenize(string target_line, vector<string> *result_tokens)
 {
 	// abide by the interface
 	char line[target_line.length()];

@@ -5,9 +5,9 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "../transport_protocols/transport_control/rdt_strategy.h"
-#include "../transport_protocols/transport_control/stop_and_wait.h"
-#include "../transport_protocols/transport_control/selective_repeat.h"
+#include "../../transport_protocols/transport_control/rdt_strategy.h"
+#include "../../transport_protocols/transport_control/stop_and_wait.h"
+#include "../../transport_protocols/transport_control/selective_repeat.h"
 
 using namespace std;
 

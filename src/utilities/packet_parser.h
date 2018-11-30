@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include "../transport_packet/packet.h"
+#include <cstring>
 
 using namespace std;
 
