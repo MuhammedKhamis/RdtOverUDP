@@ -7,10 +7,8 @@ using namespace std;
 /******************************************/
 
 
-selective_repeat::selective_repeat() {
-    //TODO
-}
+selective_repeat::selective_repeat(struct sockaddr_in client) : rdt_strategy(client) {}
 
-void selective_repeat::implement() {
+void selective_repeat::implement(vector<packet> *packets) {
     //TODO
 }

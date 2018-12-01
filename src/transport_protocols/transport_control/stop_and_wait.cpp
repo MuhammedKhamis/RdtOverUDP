@@ -7,10 +7,8 @@ using namespace std;
 /******************************************/
 
 
-stop_and_wait::stop_and_wait() {
-    //TODO
-}
+stop_and_wait::stop_and_wait(struct sockaddr_in client) : rdt_strategy(client) {}
 
-void stop_and_wait::implement() {
+void stop_and_wait::implement(vector<packet> *packets) {
     //TODO
 }

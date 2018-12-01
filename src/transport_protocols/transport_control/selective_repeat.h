@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 #include "rdt_strategy.h"
+#include "packet.h"
+
 using namespace std;
 
 /* class definition */
@@ -13,9 +15,9 @@ using namespace std;
 class selective_repeat : public rdt_strategy {
 	public:
 		// constructor
-		selective_repeat();
+		selective_repeat(struct sockaddr_in client);
 		//interface methods
-		void implement();
+		void implement(vector<packet> *packets);
 };
 
 #endif 

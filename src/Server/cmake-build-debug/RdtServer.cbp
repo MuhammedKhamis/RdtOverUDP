@@ -92,13 +92,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/connection_handler/connection_handler.cpp">
+			<Option target="RdtServer.out"/>
+		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/connection_handler/connection_handler.h">
+			<Option target="RdtServer.out"/>
+		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server-main.cpp">
 			<Option target="RdtServer.out"/>
 		</Unit>
-		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server_controller/connection_handler.cpp">
-			<Option target="RdtServer.out"/>
-		</Unit>
-		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server_controller/connection_handler.h">
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server_controller/server_controller.cpp">
 			<Option target="RdtServer.out"/>
 		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server_controller/server_controller.h">
@@ -153,6 +156,9 @@
 			<Option target="RdtServer.out"/>
 		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/io_handler.h">
+			<Option target="RdtServer.out"/>
+		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/packet_manager.cpp">
 			<Option target="RdtServer.out"/>
 		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/packet_manager.h">

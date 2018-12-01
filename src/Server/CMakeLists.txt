@@ -24,5 +24,5 @@ add_executable(RdtServer.out
         ${SRC_FILES}
         server-main.cpp
         server_controller/server_controller.h
-        server_controller/connection_handler.h
-        server_controller/connection_handler.cpp)
+        connection_handler/connection_handler.h
+        connection_handler/connection_handler.cpp server_controller/server_controller.cpp)

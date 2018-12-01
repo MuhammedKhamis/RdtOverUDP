@@ -13,12 +13,12 @@ using namespace std;
 class packet_manager
 {
 	public:
-		static void disassemble_data(char *data, vector<packet> *packet_queue);
-		static void assemble_data(vector<packet> *packet_queue, char* data);
+		static vector<packet> disassemble_data(const char *data);
+		static char* assemble_data(vector<packet> *packet_queue);
 
 	private:
 		// prevent instance
-		packet_manager();
+		packet_manager() = default;
 };
 
 #endif 

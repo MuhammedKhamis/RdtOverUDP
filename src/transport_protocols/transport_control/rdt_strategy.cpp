@@ -3,6 +3,5 @@
 using namespace std;
 
 
-rdt_strategy::rdt_strategy() {
-    //TODO
+rdt_strategy::rdt_strategy(struct sockaddr_in client): client(client) {
 }
