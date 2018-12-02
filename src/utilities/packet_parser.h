@@ -16,13 +16,18 @@ class packet_parser
 {
 	public:
 		// interface methods
-		static packet *parse_packet(char* rdt_msg);
+		data_packet create_packet(string data);
+		string packet_tostring(data_packet packet_n);
+		pair<string,string> seperate_headers_data(string);
+		vector<string> divide_data_size(string data, int size);
 
 	private:
 		// prevent instance
 		packet_parser();
 		// utility methods
-		static void tokenize(string target_line, vector<string> *result_tokens);
+		int get_line_data(stringstream *s, string header);
+
+
 };
 
 #endif 
