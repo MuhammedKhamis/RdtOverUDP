@@ -19,6 +19,11 @@ class packet_manager
 	private:
 		// prevent instance
 		packet_manager() = default;
+		// separate message by lines
+  		string get_lines(char*);
+  		// tokenize line by spaces
+  		vector<string> tokenize(char*);
+
 };
 
 #endif 
