@@ -32,6 +32,8 @@ class rdt_strategy
 		// constructor
 		rdt_strategy(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 
+		bool canSend();
+
 		virtual ~rdt_strategy() = default;
 		// interface methods
 		virtual void implement(vector<data_packet> *packets) = 0;

@@ -22,23 +22,29 @@ void stop_and_wait::implement(vector<data_packet> *packets) {
         string buf = curr.to_string();
         int buf_len = buf.size();
 
-        // send packet.
-        port_handler::writeExact(socket_fd, &buf[0], buf_len, &client, client_len);
+        if(canSend()) {
+            // send packet.
+            port_handler::writeExact(socket_fd, &buf[0], buf_len, &client, client_len);
+        }
 
         vector<char> ret_buffer(MAX_REQ_SZ,0);
 
+        // wait for the ack
         int recv_len = port_handler::timeout_tryread(socket_fd, ret_buffer, MAX_REQ_SZ,
                 &client, &client_len, time_in_sec);
 
-        //get len of packet and
-        if(recv_len == 0){
-            // timeOut happened
-            i--;
-            // we will resend it.
-        }
+        //get len of packet from headers
 
-        //wait for ack.
-        recv_len = port_handler::readExact(socket_fd, ret_buffer, 1, &client, &client_len);
+        // process the ack
+
+        // timeOut happened
+        if(recv_len == 0){
+            // we will resend it.
+            i--;
+        }else{
+            //read the ack.
+            recv_len = port_handler::readExact(socket_fd, ret_buffer, 1, &client, &client_len);
+        }
 
     }
 
