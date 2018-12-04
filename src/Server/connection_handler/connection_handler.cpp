@@ -2,6 +2,7 @@
 #include <packet.h>
 #include <packet_manager.h>
 #include <data_packet.h>
+#include <port_handler.h>
 #include "connection_handler.h"
 
 /* constructor */
@@ -44,5 +45,5 @@ connection_handler::handle_client()
 
 connection_handler::~connection_handler() {
     delete strategy;
-    close(socket_fd);
+    port_handler::closeConnection(socket_fd);
 }

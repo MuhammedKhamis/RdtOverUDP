@@ -7,6 +7,7 @@
 #include <string>
 #include "../transport_packet/packet.h"
 #include <cstring>
+#include <data_packet.h>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class packet_parser
 	public:
 		// interface methods
 		static data_packet create_packet(string data);
-		static string packet_tostring(data_packet packet_n);
+		static string packet_tostring(packet packet_n);
 		static pair<string,string> seperate_headers_data(string);
 		static vector<string> divide_data_size(string data, int size);
 

@@ -22,7 +22,8 @@
 
 /* interface methods */
 /******************************************/
-string packet_parser::packet_tostring(data_packet packet_n) {
+string packet_parser::packet_tostring(packet packet_n) {
+  /*
   string res = "" ;
   res += "Checksum : " + to_string(packet_n.getCheck_sum()) + "\r\n";
   res += "Length : " + to_string(packet_n.getLength()) + "\r\n";
@@ -34,6 +35,7 @@ string packet_parser::packet_tostring(data_packet packet_n) {
   res += "Data : \r\n" ;
   res += string(packet_n.getData()) ;
   return res.c_str();
+  */
 }
 
 

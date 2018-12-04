@@ -28,5 +28,5 @@ void packet::setLength(uint16_t length) {
 }
 
 string packet::to_string() {
-  return packet_parser::packet_tostring(this);
+  return packet_parser::packet_tostring(*this);
 }

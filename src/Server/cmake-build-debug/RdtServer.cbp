@@ -184,6 +184,12 @@
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/packet_parser.h">
 			<Option target="RdtServer.out"/>
 		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/port_handler.cpp">
+			<Option target="RdtServer.out"/>
+		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/utilities/port_handler.h">
+			<Option target="RdtServer.out"/>
+		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

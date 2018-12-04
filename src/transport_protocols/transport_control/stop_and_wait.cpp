@@ -1,6 +1,7 @@
 /* import libraries */
 /******************************************/
 #include <constants.h>
+#include <port_handler.h>
 #include "stop_and_wait.h"
 using namespace std;
 
@@ -13,21 +14,31 @@ stop_and_wait::stop_and_wait(struct sockaddr_in client, int socket_fd, socklen_t
 
 void stop_and_wait::implement(vector<data_packet> *packets) {
 
-    for(data_packet dt : *packets){
+    int time_in_sec = 10;
+    for(int i = 0 ; i < packets->size() ; i++){
 
         // convert data to string
-        string buf = dt.to_string();
+        data_packet curr = *(packets->begin() + i);
+        string buf = curr.to_string();
         int buf_len = buf.size();
 
         // send packet.
-        sendto(socket_fd, &buf[0], buf_len, MSG_CONFIRM,
-                (const struct sockaddr *) &client, client_len);
+        port_handler::writeExact(socket_fd, &buf[0], buf_len, &client, client_len);
 
         vector<char> ret_buffer(MAX_REQ_SZ,0);
 
-        //wait for confirmation.
-        int recv_len = recvfrom(socket_fd, &ret_buffer[0], MAX_REQ_SZ, MSG_WAITALL,
-                ( struct sockaddr *) &client, &client_len);
+        int recv_len = port_handler::timeout_tryread(socket_fd, ret_buffer, MAX_REQ_SZ,
+                &client, &client_len, time_in_sec);
+
+        //get len of packet and
+        if(recv_len == 0){
+            // timeOut happened
+            i--;
+            // we will resend it.
+        }
+
+        //wait for ack.
+        recv_len = port_handler::readExact(socket_fd, ret_buffer, 1, &client, &client_len);
 
     }
 
