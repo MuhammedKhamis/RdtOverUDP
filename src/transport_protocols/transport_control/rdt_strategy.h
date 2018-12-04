@@ -14,6 +14,7 @@
 #include <arpa/inet.h>
 #include "../congestion_control/congestion_controller.h"
 #include "packet.h"
+#include <data_packet.h>
 
 using namespace std;
 
@@ -25,11 +26,15 @@ class rdt_strategy
 		// attributes
 		congestion_controller con_controller;
 		struct sockaddr_in client;
+		int socket_fd;
+		socklen_t client_len;
 	public:
 		// constructor
-		rdt_strategy(struct sockaddr_in client);
+		rdt_strategy(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+
+		virtual ~rdt_strategy() = default;
 		// interface methods
-		virtual void implement(vector<packet> *packets) = 0;
+		virtual void implement(vector<data_packet> *packets) = 0;
 };
 
 #endif 

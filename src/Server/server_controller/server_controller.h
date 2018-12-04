@@ -13,8 +13,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-
-#define MAX_REQ_SZ 1024
+#include <constants.h>
 
 using namespace std;
 

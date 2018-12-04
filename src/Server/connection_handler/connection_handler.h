@@ -23,13 +23,16 @@ using namespace std;
 class connection_handler
 {
 	public:
-		connection_handler(struct sockaddr_in client, char *file_name);
+		connection_handler(struct sockaddr_in client, char *file_name, socklen_t client_len);
+		~connection_handler();
 		void handle_client();
 
 private:
 	struct sockaddr_in curr_client;
 	rdt_strategy* strategy;
 	char* file_name;
+	int socket_fd;
+	socklen_t client_len;
 };
 
 #endif 

@@ -19,6 +19,7 @@ class packet
   uint16_t getLength() const;
   void setCheck_sum(uint16_t check_sum);
   void setLength(uint16_t length);
+  string to_string();
  private:
         uint16_t check_sum;
         uint16_t length;

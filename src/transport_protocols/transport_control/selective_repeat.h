@@ -15,9 +15,9 @@ using namespace std;
 class selective_repeat : public rdt_strategy {
 	public:
 		// constructor
-		selective_repeat(struct sockaddr_in client);
+		selective_repeat(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 		//interface methods
-		void implement(vector<packet> *packets);
+		void implement(vector<data_packet> *packets);
 };
 
 #endif 

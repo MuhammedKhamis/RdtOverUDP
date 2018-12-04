@@ -9,16 +9,17 @@ set(APP_SERVER ../Server)
 set(APP_UTIL ../utilities)
 set(APP_PACKET ../transport_packet)
 set(APP_PROTOCOL ../transport_protocols)
-
+set(APP_CONSTANTS ../constants)
 
 include_directories(${APP_SERVER})
 include_directories(${APP_UTIL})
 include_directories(${APP_PACKET})
 include_directories(${APP_PROTOCOL})
+include_directories(${APP_CONSTANTS})
 
 
 
-file(GLOB_RECURSE SRC_FILES ${APP_UTIL}/* ${APP_PACKET}/* ${APP_PROTOCOL}/*)
+file(GLOB_RECURSE SRC_FILES ${APP_UTIL}/* ${APP_PACKET}/* ${APP_PROTOCOL}/* ${APP_CONSTANTS}/*)
 
 add_executable(RdtServer.out
         ${SRC_FILES}

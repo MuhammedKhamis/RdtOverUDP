@@ -48,6 +48,7 @@
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../utilities"/>
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../transport_packet"/>
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../transport_protocols"/>
+					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../constants"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -75,6 +76,7 @@
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../utilities"/>
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../transport_packet"/>
 					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../transport_protocols"/>
+					<Add directory="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/../constants"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -107,10 +109,22 @@
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/Server/server_controller/server_controller.h">
 			<Option target="RdtServer.out"/>
 		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/constants/constants.h">
+			<Option target="RdtServer.out"/>
+		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/ack_packet.cpp">
+			<Option target="RdtServer.out"/>
+		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/ack_packet.h">
 			<Option target="RdtServer.out"/>
 		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/data_packet.cpp">
+			<Option target="RdtServer.out"/>
+		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/data_packet.h">
+			<Option target="RdtServer.out"/>
+		</Unit>
+		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/packet.cpp">
 			<Option target="RdtServer.out"/>
 		</Unit>
 		<Unit filename="/media/muhammed/Shared/Work/RdtOverUDP/src/transport_packet/packet.h">

@@ -16,10 +16,10 @@ class packet_parser
 {
 	public:
 		// interface methods
-		data_packet create_packet(string data);
-		string packet_tostring(data_packet packet_n);
-		pair<string,string> seperate_headers_data(string);
-		vector<string> divide_data_size(string data, int size);
+		static data_packet create_packet(string data);
+		static string packet_tostring(data_packet packet_n);
+		static pair<string,string> seperate_headers_data(string);
+		static vector<string> divide_data_size(string data, int size);
 
 	private:
 		// prevent instance

@@ -1,7 +1,6 @@
 #include <connection_handler/connection_handler.h>
 #include "server_controller.h"
 
-
 server_controller::server_controller(int port) : port_no(port) {
 
 }
@@ -48,8 +47,9 @@ void server_controller::run_server() {
             // error in fork
         }else if(child == 0){
             // now in child
-            auto *ch = new connection_handler(cliaddr, buffer);
+            auto *ch = new connection_handler(cliaddr, buffer, len);
             ch->handle_client();
+            delete ch;
             exit(EXIT_SUCCESS);
         }
         usleep(100);
