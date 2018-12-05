@@ -19,10 +19,8 @@ using namespace std;
 class client_controller
 {
 	private:
-		int server_port
-		int sockfd; 
-    	struct sockaddr_in servaddr;
-
+		port_handler p_handler;
+		rdt_strategy *strategy;
 
 	public:
 		client_controller(int server_port);

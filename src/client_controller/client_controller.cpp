@@ -5,6 +5,7 @@
 client_controller::client_controller(int server_port)
 {
 	this->server_port = server_port;
+	strategy = new saw_client();
 }
 
 /* init client UDP connection */
@@ -29,24 +30,12 @@ client_controller::init()
 
 /* run client --> get remote file */
 /******************************************/
-#define MAXLINE 1024 
 int
 client_controller::get_remote_file(char* file_name) { 
 
-    int n, len; 
-    char buffer[MAXLINE];
-      
-    sendto(sockfd, (const char *)hello, strlen(hello), 
-        MSG_CONFIRM, (const struct sockaddr *) &servaddr,  
-            sizeof(servaddr)); 
-    printf("Hello message sent.\n"); 
-          
-    n = recvfrom(sockfd, (char *)buffer, MAXLINE,  
-                MSG_WAITALL, (struct sockaddr *) &servaddr, 
-                &len); 
-    buffer[n] = '\0'; 
-    printf("Server : %s\n", buffer); 
-  
-    close(sockfd); 
-    return 0; 
+	// 01. send file name and receive ACK
+
+	// 02. implement strategy
+
+	// 03. save file to disk
 } 

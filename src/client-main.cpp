@@ -17,7 +17,7 @@ main(int argc, char const *argv[])
     client_controller client();
     client.init();
     // receive remote file
-    string remote_file = client.get_remote_file(file_dir);
+    client.get_remote_file(file_dir);
 
     return 0; 
 }
