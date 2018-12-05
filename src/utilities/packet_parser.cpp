@@ -10,7 +10,6 @@
 //   -Checksum : number\r\n
 //   -Length : number\r\n
 //   -Seq_number : number\r\n
-//   -Last_packet : 0/1\r\n\r\n
 //   -Data : \r\n
 //   -Line 1 data
 //   -Line 2 data
@@ -62,7 +61,6 @@ data_packet packet_parser::create_packet(string data) {
   uint16_t checksum = get_line_data(s,"Checksum") ;
   uint16_t length = get_line_data(s,"Length") ;
   uint32_t seq_no = get_line_data(s,"Seq_no") ;
-  bool last_packet = get_line_data(s,"Last_packet") ;
   string file_data(s->str().substr(s->tellg()));
   return data_packet(checksum, length, seq_no, file_data, last_packet) ;
 }
@@ -70,7 +68,7 @@ data_packet packet_parser::create_packet(string data) {
 pair<string, string> packet_parser::seperate_headers_data(string data) {
   stringstream ss(data);
   string headers,to;
-  for( int i = 0 ; i < 4 ; i++){
+  for( int i = 0 ; i < 3 ; i++){
     getline(ss,to,'\n') ;
     headers += to + "\n" ;
   }

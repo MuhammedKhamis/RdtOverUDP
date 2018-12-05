@@ -13,7 +13,7 @@ using namespace std;
 class data_packet : public packet
 {
  public:
-  data_packet(uint16_t check_sum, uint16_t length, uint32_t seq_no, string data, bool last_packet);
+  data_packet(uint16_t check_sum, uint16_t length, uint32_t seq_no, string data);
   virtual ~data_packet();
   uint32_t getSeq_no() const;
   string getData() const;

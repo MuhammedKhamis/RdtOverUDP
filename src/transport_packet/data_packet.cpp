@@ -4,9 +4,9 @@
 
 #include "data_packet.h"
 
-data_packet::data_packet(uint16_t check_sum, uint16_t length, uint32_t seq_no, string data, bool last_packet) : packet(
+data_packet::data_packet(uint16_t check_sum, uint16_t length, uint32_t seq_no, string data) : packet(
     check_sum,
-    length), seq_no(seq_no), data(data), last_packet(last_packet) {}
+    length), seq_no(seq_no), data(data) {}
 
 
 data_packet::~data_packet() {
