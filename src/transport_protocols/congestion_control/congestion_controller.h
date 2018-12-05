@@ -5,7 +5,9 @@
 /******************************************/
 #include <vector>
 #include <string>
+#include "state.h"
 using namespace std;
+
 
 /* class definition */
 /******************************************/
@@ -19,8 +21,9 @@ class congestion_controller
 	public:
 		// constructor
 		congestion_controller();
-		// interface methods
-		int update_window_size();
+        // interface methods
+		int update_window_size(EVENT_TYPE);
+		state* cong_state;
 };
 
 #endif 

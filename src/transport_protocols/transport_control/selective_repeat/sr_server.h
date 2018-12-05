@@ -28,7 +28,7 @@ class sr_server : public selective_repeat
 		vector<data_packet> *packets;
 		congestion_controller con_controller;
 		int window_size;
-		data_window d_window;
+		packet_window p_window;
 		int implementation_done_flag = 0; // used to kick 
 		pthread_t time_handler_id;
 		

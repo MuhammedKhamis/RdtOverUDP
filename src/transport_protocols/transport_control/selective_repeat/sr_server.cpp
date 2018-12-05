@@ -7,7 +7,7 @@ sr_server::sr_server(struct sockaddr_in client, int socket_fd, socklen_t client_
 
     this->con_controller();
 	window_size = 1;
-	this->d_window(1);
+	this->p_window(1);
 }
 
 /* interface method */
@@ -45,7 +45,7 @@ sr_server::implement()
 		ack_packet packet = packet_parser::parse_ack_packet(buffer);
 
 		// update window
-		int remaining_window = d_window.mark_acked(packet.get_seq_no());
+		int remaining_window = p_window.mark_acked(packet.get_seq_no());
 		// send new open space
 		while(remaining_window > 0)
 		{
@@ -72,7 +72,7 @@ sr_server::send_packet(int index)
 	tmp.acked = 0;
 	time(&tmp.start_time);
 	// insert into window
-	d_window.insert(tmp);
+	p_window.insert(tmp);
 }
 
 void*
@@ -88,7 +88,7 @@ sr_server::timer_handler()
 	while(implementation_done_flag == 0)
 	{
 		vector<struct packet_info>::iterator ptr;
-	    for (ptr = d_window.begin(); ptr < d_window.end(); ptr++) 
+	    for (ptr = p_window.begin(); ptr < p_window.end(); ptr++) 
 	    {
 	    	if(ptr->acked == 1){continue;} // acked pkt -> skip
 	    	time(&curr_time); // get system current time
