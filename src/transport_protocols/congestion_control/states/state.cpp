@@ -4,5 +4,5 @@
 
 #include "state.h"
 state * state::update_window(EVENT_TYPE, int* threshold, int* window_size) {
-  return -1 ;
+  return nullptr ;
 }

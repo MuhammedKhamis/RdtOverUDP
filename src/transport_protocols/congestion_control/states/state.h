@@ -5,12 +5,7 @@
 #ifndef RDTOVERUDP_STATE_H
 #define RDTOVERUDP_STATE_H
 
-#define MSS 512
-
-/* event types for congestion control */
-enum EVENT_TYPE {ACK, TIMEOUT};
-
-
+#include "../../../constants/constants.h"
 
 class state {
    public:

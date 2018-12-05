@@ -3,8 +3,10 @@
 
 using namespace std;
 
-congestion_controller::congestion_controller(int threshold) : threshold(threshold) {
-    congestion_controller::cong_state = new slow_start() ;
+congestion_controller::congestion_controller() {
+  threshold = INITIAL_THRESHOLD ;
+  window_size = 1 ;
+  congestion_controller::cong_state = new slow_start() ;
 }
 
 int congestion_controller::update_window_size(EVENT_TYPE event) {

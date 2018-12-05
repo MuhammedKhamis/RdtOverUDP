@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include "../transport_packet/packet.h"
+#include "../transport_packet/data_packet.h"
 using namespace std;
 
 /* class definition */

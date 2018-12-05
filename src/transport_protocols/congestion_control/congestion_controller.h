@@ -20,7 +20,7 @@ class congestion_controller
 
 	public:
 		// constructor
-		congestion_controller(int threshold);
+		congestion_controller();
         // interface methods
 		int update_window_size(EVENT_TYPE);
 		state* cong_state;

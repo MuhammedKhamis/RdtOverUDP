@@ -12,9 +12,9 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include "transport_control/rdt_strategy.h"
-#include "transport_control/stop_and_wait.h"
-#include "transport_control/selective_repeat.h"
+#include "../transport_control/rdt_strategy.h"
+#include "../transport_control/stop_and_wait.h"
+#include "../transport_control/selective_repeat.h"
 
 using namespace std;
 
