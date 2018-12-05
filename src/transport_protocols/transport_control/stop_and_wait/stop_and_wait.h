@@ -17,7 +17,7 @@ class stop_and_wait : public rdt_strategy
 		// constructor
 		stop_and_wait(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 		//interface methods
-		void implement(vector<data_packet> *packets);
+		virtual void implement() = 0;
 };
 
 #endif 

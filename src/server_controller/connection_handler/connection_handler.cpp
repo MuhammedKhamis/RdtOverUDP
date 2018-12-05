@@ -39,6 +39,7 @@ connection_handler::handle_client()
     }
 
     // 03. implement RDT strategy
+    strategy->init(&file_packets);
 	strategy->implement(&file_packets);
 
 }

@@ -1,18 +1,21 @@
-/* import libraries */
+#include "saw_client.h"
+
+/* constructor */
 /******************************************/
-#include <constants.h>
-#include <port_handler.h>
-#include "stop_and_wait.h"
-using namespace std;
+saw_server::saw_server(struct sockaddr_in client, int socket_fd, socklen_t client_len)
+        : stop_and_wait(client, socket_fd, client_len) {}
 
-/* class definition */
+/* init */
 /******************************************/
+void
+saw_server::init(vector<data_packet> *packets)
+{
+	this->packets = packets;
+}
 
-
-stop_and_wait::stop_and_wait(struct sockaddr_in client, int socket_fd, socklen_t client_len)
-        : rdt_strategy(client, socket_fd, client_len) {}
-
-void stop_and_wait::implement(vector<data_packet> *packets) {
+/* implement strategy */
+/******************************************/
+void saw_server::implement(vector<data_packet> *packets) {
 
     int time_in_sec = 10;
     for(int i = 0 ; i < packets->size() ; i++){

@@ -17,7 +17,8 @@ class selective_repeat : public rdt_strategy {
 		// constructor
 		selective_repeat(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 		//interface methods
-		void implement(vector<data_packet> *packets);
+		void implement_server(vector<data_packet> *packets);
+		void implement_client(vector<data_packet> *packets);
 };
 
 #endif 

@@ -31,7 +31,6 @@ public:
 protected:
 
 private:
-
     uint16_t port_no;
     int socket_fd;
 

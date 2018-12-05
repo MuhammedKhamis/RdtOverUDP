@@ -24,19 +24,18 @@ class rdt_strategy
 {
 	protected:
 		// attributes
-		congestion_controller con_controller;
-		struct sockaddr_in client;
-		int socket_fd;
-		socklen_t client_len;
+		port_handler p_handler;
+		
 	public:
 		// constructor
 		rdt_strategy(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		virtual ~rdt_strategy() = default;
 
+		// utility methods
 		bool canSend();
 
-		virtual ~rdt_strategy() = default;
 		// interface methods
-		virtual void implement(vector<data_packet> *packets) = 0;
+		virtual void implement() = 0;
 };
 
 #endif 
