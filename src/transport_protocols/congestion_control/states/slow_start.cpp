@@ -20,7 +20,11 @@ state * slow_start::update_window(EVENT_TYPE event, int *threshold, int *window_
 
   /* when windows reach threshold transfer state to congestion control */
   if(*window_size >= *threshold)
-    return new congestion_control() ;
+    return congestion_control::inst ;
   else
     return this ;
+}
+
+slow_start::slow_start() {
+
 }

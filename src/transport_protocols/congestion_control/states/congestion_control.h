@@ -14,6 +14,9 @@ class congestion_control : public state
 {
    public:
     state* update_window(EVENT_TYPE, int *threshold, int *window_size);
+    static congestion_control* inst;
+   private:
+    congestion_control() ;
 };
 
 #endif 

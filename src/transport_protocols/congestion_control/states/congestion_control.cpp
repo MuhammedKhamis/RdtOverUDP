@@ -10,7 +10,7 @@ state * congestion_control::update_window(EVENT_TYPE event, int *threshold, int 
   if(event == TIMEOUT) {
     *threshold = *window_size / 2 ;
     *window_size = MSS ;
-    return new slow_start() ;
+    return slow_start::inst ;
   }
   /* acknowledgement is received rather than doubling the value of cwnd every RTT,
    * TCP adopts a more conservative approach and increases the value of cwnd by
@@ -20,5 +20,9 @@ state * congestion_control::update_window(EVENT_TYPE event, int *threshold, int 
   }
 
   return this ;
+
+}
+
+congestion_control::congestion_control() {
 
 }

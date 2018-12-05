@@ -14,6 +14,10 @@ class slow_start : public state
 {
    public:
       state* update_window(EVENT_TYPE, int *threshold, int *window_size);
+      static slow_start* inst;
+   private:
+      slow_start();
+
 };
 
 #endif 
