@@ -2,53 +2,55 @@
 
 /* constructor */
 /******************************************/
-saw_server::saw_server(struct sockaddr_in client, int socket_fd, socklen_t client_len)
+saw_client::saw_client(struct sockaddr_in client, int socket_fd, socklen_t client_len)
         : stop_and_wait(client, socket_fd, client_len) {}
 
 /* init */
 /******************************************/
 void
-saw_server::init(vector<data_packet> *packets)
+saw_client::init(int expected_packets_count, vector<data_packet> *received_packets)
 {
-	this->packets = packets;
+    this->expected_packets_count = expected_packets_count;
+    this->received_packets = received_packets;
 }
 
 /* implement strategy */
 /******************************************/
-void saw_server::implement(vector<data_packet> *packets) {
+void saw_client::implement()
+{
+    int received_pkt_count = 0;
+    int expected_seq_no = 0;
+    int last_ack_seq_no = 1;
 
-    int time_in_sec = 10;
-    for(int i = 0 ; i < packets->size() ; i++){
+    while(received_pkt_count < expected_packets_count)
+    {
+        // 01. BLOCKING receive
+        char *buffer;
+        p_handler.receive(buffer); // blocking\
 
-        // convert data to string
-        data_packet curr = *(packets->begin() + i);
-        string buf = curr.to_string();
-        int buf_len = buf.size();
+        // 02. parse packet
+        data_packet curr_pkt = packet_parser::parse_data_packet(buffer);
 
-        if(canSend()) {
-            // send packet.
-            port_handler::writeExact(socket_fd, &buf[0], buf_len, &client, client_len);
+        // 03. send ACK
+        if(curr_pkt.get_seq_no() != expected_seq_no)
+        {
+            // invalid seq no
+            ack_packet ack(last_ack_seq_no);
+            p_handler.send(ack.to_string());
+            continue;
         }
+        // valid seq no
+        ack_packet ack(expected_seq_no);
+        p_handler.send(ack.to_string());
 
-        vector<char> ret_buffer(MAX_REQ_SZ,0);
+        // 03. add packet to list
+        received_packets->push_back(curr_pkt);
 
-        // wait for the ack
-        int recv_len = port_handler::timeout_tryread(socket_fd, ret_buffer, MAX_REQ_SZ,
-                &client, &client_len, time_in_sec);
-
-        //get len of packet from headers
-
-        // process the ack
-
-        // timeOut happened
-        if(recv_len == 0){
-            // we will resend it.
-            i--;
-        }else{
-            //read the ack.
-            recv_len = port_handler::readExact(socket_fd, ret_buffer, 1, &client, &client_len);
-        }
-
+        // 04. update variables
+        received_pkt_count++;
+        int tmp = last_ack_seq_no;
+        last_ack_seq_no = expected_seq_no;
+        expected_seq_no = tmp;
     }
-
+    
 }

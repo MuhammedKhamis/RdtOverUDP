@@ -34,8 +34,14 @@ int
 client_controller::get_remote_file(char* file_name) { 
 
 	// 01. send file name and receive ACK
+    // get number of packets to receive
+    int expected_packets_count;
 
 	// 02. implement strategy
+    vector<data_packet> received_packets;
+    strategy = new saw_client();
+    strategy.init(expected_packets_count, &received_packets);
+    strategy.implement();
 
 	// 03. save file to disk
 } 
