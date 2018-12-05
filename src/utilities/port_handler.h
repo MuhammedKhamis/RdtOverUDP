@@ -23,11 +23,8 @@ class port_handler{
 
         port_handler(int socked_fd, struct sockaddr_in *dest_addr,socklen_t dest_len, struct sockaddr_in *src_addr,socklen_t *src_len);
         void send(char* data, int len);
-        void receive(char *buffer, int timout); // non-blocking. timout in milli-seconds
+        int receive(char *buffer, int timout); // non-blocking. timout in milli-seconds
         void receive(char *buffer); // blocking receive
-
-
-
 
 
 

@@ -7,8 +7,10 @@
 #include <string>
 #include "rdt_strategy.h"
 #include "packet.h"
+#include <pthread.h>
 
 using namespace std;
+#define TIMEOUT 1 // in seconds
 
 
 struct packet_info {
@@ -23,8 +25,17 @@ class sr_server : public selective_repeat
 {
 	private: 
 		// attributes
+		vector<data_packet> *packets;
 		congestion_controller con_controller;
 		int window_size;
+		data_window d_window;
+		int implementation_done_flag = 0; // used to kick 
+		pthread_t time_handler_id;
+		
+		// utility methods
+		void send_packet(int index);
+		void* run_timer_thread(void *tmp);
+		void timer_handler();
 
 	public:
 		// constructor
