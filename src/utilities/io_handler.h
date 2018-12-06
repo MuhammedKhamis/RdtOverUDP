@@ -14,7 +14,8 @@ using namespace std;
 class io_handler
 {
 	public:
-		static void read_file(char file_dir[], vector<string> *file_buffer);
+		static void read_file(char file_dir[], vector<string> &file_buffer);
+		static void write_file(char file_dir[], vector<string> &file_buffer);
 
 	private:
 		// Disallow creating an instance of this object

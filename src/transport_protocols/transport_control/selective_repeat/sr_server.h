@@ -21,7 +21,7 @@ class sr_server : public selective_repeat
 {
 	private: 
 		// attributes
-		vector<data_packet> *data_packets;
+		vector<data_packet> data_packets;
 		congestion_controller con_controller;
 		circular_array p_window;
 		int implementation_done_flag = 0; // used to kick 
@@ -37,7 +37,7 @@ class sr_server : public selective_repeat
 		sr_server(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 		
 		//interface methods
-		void init(vector<data_packet> *data_packets);
+		void init(vector<data_packet> data_packets);
 		void implement();
 };
 

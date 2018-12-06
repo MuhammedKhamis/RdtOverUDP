@@ -35,7 +35,7 @@ connection_handler::handle_client()
     vector<string> file_lines;
 
 	// 01. read file from disk
-	io_handler::read_file(file_name, &file_lines);
+	io_handler::read_file(file_name, file_lines);
 
 	// 02. disassemble file into packets
     vector<data_packet> file_packets;
@@ -45,7 +45,7 @@ connection_handler::handle_client()
     }
 
     // 03. implement RDT strategy
-    strategy->init(&file_packets);
+    strategy->init(file_packets);
 	strategy->implement();
 
 }

@@ -8,7 +8,7 @@ saw_server::saw_server(struct sockaddr_in client, int socket_fd, socklen_t clien
 /* init */
 /******************************************/
 void
-saw_server::init(vector<data_packet> *data_packets)
+saw_server::init(vector<data_packet> &data_packets)
 {
 	this->data_packets = data_packets;
 }
@@ -19,7 +19,7 @@ void saw_server::implement()
 {
 
     vector<data_packet>::iterator ptr;
-    for (ptr = data_packets->begin(); ptr < data_packets->end(); ptr++) 
+    for (ptr = data_packets.begin(); ptr < data_packets.end(); ptr++)
     {
         while(1)
         {

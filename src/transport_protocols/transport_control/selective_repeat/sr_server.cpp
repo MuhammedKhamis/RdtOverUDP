@@ -1,3 +1,5 @@
+#include <bits/socket.h>
+#include <netinet/in.h>
 #include "sr_server.h"
 
 /* constructor */
@@ -9,9 +11,9 @@ sr_server::sr_server(struct sockaddr_in client, int socket_fd, socklen_t client_
 /* interface method */
 /******************************************/
 void
-init(vector<data_packet> *data_packets)
+init(vector<data_packet> data_packets)
 {
-	this->p_window(INIT_WIN_LEN);
+	p_window = circular_array(INIT_WIN_LEN);
 	this->con_controller();
 	this->data_packets = data_packets;
 }

@@ -12,35 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33c08028-c7be-4a4b-9b43-2a7891a9791b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client_controller/client_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client_controller/client_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client_controller/client_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client_controller/client_controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main/client/client-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/client/client-main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/selective_repeat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/selective_repeat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/constants.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/port_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/port_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/port_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/port_handler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utilities/io_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/io_handler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utilities/io_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/io_handler.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
