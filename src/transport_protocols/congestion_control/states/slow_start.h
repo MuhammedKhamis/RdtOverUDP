@@ -12,12 +12,12 @@ using namespace std;
 /******************************************/
 class slow_start : public state
 {
-   public:
-      state* update_window(EVENT_TYPE, int *threshold, int *window_size);
-      static slow_start* inst;
-   private:
-      slow_start();
+	public:
+		// constructor
+		slow_start(int *threshold, int *window_size);
 
+		// interface methods
+		state* update_window_size(EVENT_TYPE event);
 };
 
 #endif 

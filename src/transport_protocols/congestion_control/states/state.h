@@ -1,15 +1,30 @@
-//
-// Created by abdelrhman on 12/5/18.
-//
+#ifndef STATE_H
+#define STATE_H
 
-#ifndef RDTOVERUDP_STATE_H
-#define RDTOVERUDP_STATE_H
+/* import libraries */
+/******************************************/
+#include <vector>
+#include <string>
+#include "state.h"
+using namespace std;
 
-#include "../../../constants/constants.h"
+/* class definition */
+/******************************************/
+class state
+{
+	protected:
+		// attributes	
+		state *next_state;
+		int *threshold;
+		int *window_size;
 
-class state {
-   public:
-    state* update_window(EVENT_TYPE, int *threshold, int *window_size);
+	public:
+		// constructor
+		state(int *threshold, int *window_size);
+
+		// interface methods
+		void set_next_state(state *next_state);
+		virtual state* update_window_size(EVENT_TYPE event) = 0;
 };
 
-#endif //RDTOVERUDP_STATE_H
+#endif 

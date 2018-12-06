@@ -1,8 +1,17 @@
-//
-// Created by abdelrhman on 12/5/18.
-//
-
 #include "state.h"
-state * state::update_window(EVENT_TYPE, int* threshold, int* window_size) {
-  return nullptr ;
+
+/* constructor */
+/******************************************/
+state::state(int *threshold, int *window_size)
+{
+  this->threshold = threshold;
+  this->window_size = window_size;
+}
+
+/* interface methods */
+/******************************************/
+void
+state::set_next_state(state* next_state)
+{
+  this->next_state = next_state;
 }

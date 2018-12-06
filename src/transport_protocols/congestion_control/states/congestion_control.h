@@ -12,11 +12,13 @@ using namespace std;
 /******************************************/
 class congestion_control : public state
 {
-   public:
-    state* update_window(EVENT_TYPE, int *threshold, int *window_size);
-    static congestion_control* inst;
-   private:
-    congestion_control() ;
+	public:
+		// constructor
+		congestion_control(int *threshold, int *window_size);
+
+		// interface methods
+		void set_next_state(state *next_state);
+		state* update_window_size(EVENT_TYPE event);
 };
 
 #endif 
