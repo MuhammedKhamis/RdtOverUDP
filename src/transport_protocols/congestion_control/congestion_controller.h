@@ -5,7 +5,6 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "state.h"
 using namespace std;
 
 #define INITIAL_THRESHOLD 100 // 100 max packet size

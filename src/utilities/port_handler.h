@@ -24,7 +24,8 @@ class port_handler{
         socklen_t else_len;
     public:
 
-        port_handler(int socked_fd, struct sockaddr_in else_addr,socklen_t else_len);
+        port_handler();
+        port_handler(int &socked_fd, struct sockaddr_in &else_addr,socklen_t &else_len);
 
         void send(char* data, int len);
         int receive(char *buffer); // blocking receive

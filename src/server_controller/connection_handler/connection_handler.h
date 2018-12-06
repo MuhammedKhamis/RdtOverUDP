@@ -12,9 +12,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include "transport_control/rdt_strategy.h"
-#include "transport_control/stop_and_wait.h"
-#include "transport_control/selective_repeat.h"
+#include "transport_control/stop_and_wait/saw_server.h"
 
 using namespace std;
 
@@ -29,7 +27,7 @@ class connection_handler
 
 private:
 	struct sockaddr_in curr_client;
-	rdt_strategy* strategy;
+	saw_server* strategy;
 	char* file_name;
 	int socket_fd;
 	socklen_t client_len;

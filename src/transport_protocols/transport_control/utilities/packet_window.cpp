@@ -1,10 +1,10 @@
-#include "circular_array.h"
+#include "packet_window.h"
 
 /* constructor */
 /******************************************/
 circular_array::circular_array(int size)
 {
-	this->data_array(size);
+	this->data_array.resize(size);
 	this->start = 0 ;
 	this->end = 0 ;
 	this->size = 0 ;
@@ -33,12 +33,12 @@ circular_array::mark_acked(int seq_no)
 	int index = seq_no % data_array.size() ;
 	int total_ack = 1 ;
 
-	data_array[index].acked = True ;
+	data_array[index].acked = true ;
 
 	if(index == start) {
 		while(data_array[index].acked){
 			index += 1 ;
-			index %= n ;
+			index %= size ;
 			total_ack ++ ;
 		}
 		start = index ;
@@ -49,7 +49,7 @@ circular_array::mark_acked(int seq_no)
 	return total_ack ;
 }
 
-int
+bool
 circular_array::is_full()
 {
 	this->size == data_array.size() ;

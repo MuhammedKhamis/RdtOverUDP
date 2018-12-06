@@ -1,7 +1,7 @@
 #include <stdexcept>
-#include <boost/lexical_cast.hpp>
 #include <data_packet.h>
 #include "packet_parser.h"
+#include <constants.h>
 
 // -- Data in packets structure
 
@@ -22,6 +22,7 @@
 /******************************************/
 
 int packet_parser::get_line_data(stringstream* s, string header) {
+  /*
   string token;
   *s >> token ;
   if(token != header)
@@ -37,17 +38,67 @@ int packet_parser::get_line_data(stringstream* s, string header) {
   catch(...) {
     throw std::invalid_argument( "Wrong packet format" );
   }
+  */
 }
 
-data_packet packet_parser::create_packet(string data) {
-  stringstream* s = new stringstream(data);
-  uint16_t checksum = get_line_data(s,"Checksum") ;
-  uint16_t length = get_line_data(s,"Length") ;
-  uint32_t seq_no = get_line_data(s,"Seq_no") ;
-  bool last_packet = get_line_data(s,"Last_packet") ;
-  string file_data(s->str().substr(s->tellg()));
-  return data_packet(checksum, length, seq_no, file_data, last_packet) ;
+vector<string> packet_parser::tokenize(string s, string delimiter) {
+
+  vector<string> tokens ;
+  size_t pos = 0;
+  std::string token;
+  while ((pos = s.find(delimiter)) != std::string::npos) {
+    token = s.substr(0, pos);
+    tokens.push_back(token);
+    s.erase(0, pos + delimiter.length());
+  }
+  tokens.push_back(s) ;
+  return tokens ;
+
 }
+
+uint32_t packet_parser::get_token_value(string line) {
+  size_t pos = 0;
+  string key ;
+  uint32_t value ;
+  if ((pos = line.find(": ")) != std::string::npos) {
+    key = line.substr(0, pos);
+    line.erase(0, pos + 2);
+  }
+
+  value = (uint32_t)stoul(line);
+
+  if(key.empty() || value.empty()){
+    perror("Header line in request has wrong format\nRequired :\nKey: Value\n") ;
+    return -1 ;
+  }
+  return value;
+}
+
+
+packet *packet_parser::create_datapacket(string data) {
+  vector<string> tokens = tokenize(data, DELM);
+  uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
+  uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
+  uint32_t seqno = get_token_value(tokens[SEQ_IDX]);
+
+  string buffer = "";
+  for(int i = SEQ_IDX + 2 ; i < tokens.size(); i++){
+    buffer += tokens[i];
+    if(i + 1 < tokens.size()){
+      buffer += "\r\n";
+    }
+  }
+  return new data_packet(checksum, len, seqno, buffer);
+}
+
+packet *packet_parser::create_ackpacket(string data) {
+    vector<string> tokens = tokenize(data, DELM);
+    uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
+    uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
+    uint32_t seqno = get_token_value(tokens[SEQ_IDX]);
+  return new ack_packet(checksum, len, seqno);
+}
+
 
 pair<string, string> packet_parser::seperate_headers_data(string data) {
   stringstream ss(data);
@@ -72,6 +123,11 @@ vector<string> packet_parser::divide_data_size(string data , int size = 500){
   return data_divide ;
 }
 
+int packet_parser::get_packet_length(string data) {
+    vector<string> tokens = tokenize(data, DELM);
+    uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
+  return len;
+}
 
 packet_parser::packet_parser() {
 

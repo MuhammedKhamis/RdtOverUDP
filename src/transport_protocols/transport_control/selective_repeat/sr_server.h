@@ -9,7 +9,7 @@
 #include "selective_repeat.h"
 #include "../../../transport_packet/data_packet.h"
 #include "../../congestion_control/congestion_controller.h"
-#include "../../utilities/packet_window.h"
+#include "../../transport_control/utilities/packet_window.h"
 
 using namespace std;
 #define TIMEOUT 1 // in seconds
@@ -23,7 +23,7 @@ class sr_server : public selective_repeat
 		// attributes
 		vector<data_packet> *data_packets;
 		congestion_controller con_controller;
-		packet_window p_window;
+		circular_array p_window;
 		int implementation_done_flag = 0; // used to kick 
 		pthread_t time_handler_id;
 		

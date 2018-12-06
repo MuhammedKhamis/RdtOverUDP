@@ -10,7 +10,9 @@
 #include <sys/types.h> 
 #include <sys/socket.h> 
 #include <arpa/inet.h> 
-#include <netinet/in.h> 
+#include <netinet/in.h>
+#include "../utilities/port_handler.h"
+#include "../transport_protocols/transport_control/rdt_strategy.h"
 
 using namespace std;
 
@@ -23,14 +25,20 @@ class client_controller
 		rdt_strategy *strategy;
 		char* store_dir;
 		port_handler p_handler;
+		int server_port;
+		int socket_fd;
+		struct sockaddr_in else_addr;
+		socklen_t else_len;
 
 	public:
+		client_controller();
 		// constructor
 		client_controller(int server_port);
 
+
 		// interface methods
 		void init();
-		void get_remote_file(char* file_name);
+		int get_remote_file(char* file_name);
 };
 
 #endif 

@@ -38,9 +38,10 @@ void server_controller::run_server() {
         struct sockaddr_in cliaddr;
         int n;
         socklen_t len;
-        char buffer[MAX_REQ_SZ] = {0};
-        n = recvfrom(socket_fd, buffer, MAX_REQ_SZ, MSG_WAITALL, (struct sockaddr *) &cliaddr, &len);
-        buffer[n] = '\0';
+        port_handler p(socket_fd, cliaddr, len);
+        char *buffer;
+        n = p.receive(buffer);
+
         // Fork to another process to handle that connection
         pid_t child = fork();
         if(child < 0){

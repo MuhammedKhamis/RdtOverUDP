@@ -1,9 +1,10 @@
 #include <io_handler.h>
 #include <packet.h>
-#include <packet_manager.h>
+#include "../../transport_packet/utilities/packet_manager.h"
 #include <data_packet.h>
 #include <port_handler.h>
 #include "connection_handler.h"
+#include "../../transport_protocols/transport_control/stop_and_wait/saw_server.h"
 
 /* constructor */
 /******************************************/
@@ -19,13 +20,18 @@ connection_handler::connection_handler(struct sockaddr_in client, char* file_nam
     }
 
     //choose the strategy
-	strategy = new stop_and_wait(curr_client, socket_fd, client_len);
+	strategy = new saw_server(curr_client, socket_fd, client_len);
 }
 /* interface methods */
 /******************************************/
 void
 connection_handler::handle_client()
 {
+    //TODO
+
+    //parse datapacket that contain filename.
+    //get filename
+
     vector<string> file_lines;
 
 	// 01. read file from disk
@@ -40,11 +46,10 @@ connection_handler::handle_client()
 
     // 03. implement RDT strategy
     strategy->init(&file_packets);
-	strategy->implement(&file_packets);
+	strategy->implement();
 
 }
 
 connection_handler::~connection_handler() {
     delete strategy;
-    port_handler::closeConnection(socket_fd);
 }

@@ -4,9 +4,9 @@
 
 #include "port_handler.h"
 
+port_handler::port_handler() {}
 
-
-port_handler::port_handler(int socked_fd, struct sockaddr_in else_addr, socklen_t else_len)
+port_handler::port_handler(int &socked_fd, struct sockaddr_in &else_addr, socklen_t &else_len)
         :socked_fd(socked_fd), else_addr(else_addr), else_len(else_len){
 
 }
@@ -38,16 +38,15 @@ int port_handler::write(char *buffer, int sz) {
 
 
 int port_handler::receive(char *buffer) {
+
     // 01. init an array;
     buffer = (char* )malloc(MAX_REQ_SZ);
     memset(buffer, 0, MAX_REQ_SZ);
-    tryRead(buffer, MAX_REQ_SZ);
+    tryRead(buffer, HEADER_SZ);
     string pkt(buffer);
-    packet p = packet_parser::create_packet(pkt);
-    int exact_len = p.get_length();
+    int len = packet_parser::get_packet_length(pkt);
     memset(buffer, 0, MAX_REQ_SZ);
-    return readExact(buffer, exact_len);
-
+    return readExact(buffer, len);
 }
 
 int port_handler::receive(char *buffer, int timout) {

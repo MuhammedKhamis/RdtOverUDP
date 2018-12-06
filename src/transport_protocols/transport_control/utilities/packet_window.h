@@ -4,7 +4,7 @@
 /* import libraries */
 /******************************************/
 #include <vector>
-
+#include <time.h>
 using namespace std;
 
 /* data structures */

@@ -27,11 +27,6 @@ packet::get_length() const
   return length;
 }
 
-char*
-packet::get_data() const {
-  return data;
-}
-
 void
 packet::set_seqno(uint32_t seq_no) {
   packet::seq_no = seq_no;
@@ -49,20 +44,24 @@ packet::set_length(uint16_t length)
   packet::length = length;
 }
 
-void
-packet::set_data(char *data) {
-  packet::data = data;
+string packet::handle_number_sz(uint32_t num, int expected) {
+    string str_num = ::to_string(num);
+    while (str_num.length() < expected){
+        str_num = "0" + str_num;
+    }
+    return str_num;
+}
+
+
+string
+packet::stringfy_header() {
+    string res = "" ;
+    res += "Checksum: " + handle_number_sz(get_checksum(), 5) + "\r\n";
+    res += "Length: " + handle_number_sz(get_length(), 5) + "\r\n";
+    res += "Seq_number: " + handle_number_sz(get_seqno(), 10) + "\r\n";
+    res += "\r\n";
+    return res;
 }
 
 /* interface methods */
 /******************************************/
-char*
-packet::to_string() const{
-  string res = "" ;
-  res += "Checksum : " + ::to_string(get_checksum()) + "\r\n";
-  res += "Length : " + ::to_string(get_length()) + "\r\n";
-  res += "Seq_number : " + ::to_string(get_seqno()) + "\r\n";
-  res += "\r\n" ;
-  res += string(get_data()) ;
-  return (char*)res.data();
-}

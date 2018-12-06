@@ -18,7 +18,10 @@ class packet
     uint16_t check_sum;
     uint16_t length;
     uint32_t seq_no;
-    char* data;
+    string handle_number_sz(uint32_t num, int expected);
+
+protected:
+    string stringfy_header();
 
   public:
     // constructor
@@ -27,18 +30,16 @@ class packet
     virtual ~packet() = default;
 
     // interface methods
-    char* to_string() const;
+    virtual string to_string() = 0;
 
     // setters and getters
     uint16_t get_checksum() const;
     uint16_t get_length() const;
     u_int32_t get_seqno() const;
-    char *get_data() const;
 
     void set_checksum(uint16_t check_sum);
     void set_length(uint16_t length);
     void set_seqno(uint32_t seq_no);
-    void set_data(char* data);
 
 };
 

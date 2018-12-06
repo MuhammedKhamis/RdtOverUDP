@@ -17,8 +17,6 @@ saw_server::init(vector<data_packet> *data_packets)
 /******************************************/
 void saw_server::implement()
 {
-    int curr_seq_no = 0;
-    int last_seq_no = 1;
 
     vector<data_packet>::iterator ptr;
     for (ptr = data_packets->begin(); ptr < data_packets->end(); ptr++) 
@@ -26,9 +24,10 @@ void saw_server::implement()
         while(1)
         {
             // 01. send packet
-            ptr->set_seq_no(curr_seq_no);
-            char* send_data = ptr->to_string();
-            p_handler.send(send_data);
+            string send_data = ptr->to_string();
+            char* data = (char*)send_data.data();
+            int len = send_data.length();
+            p_handler.send(data, len);
 
             // 02. simulate packet loss
                 // loss_simulator.simulate();
@@ -43,10 +42,6 @@ void saw_server::implement()
 
             // 04. check seq no
             // received ack seq_no will always be the one i just sent
-            int tmp = last_seq_no;
-            last_seq_no = curr_seq_no;
-            curr_seq_no = tmp;
-            
             break; // send next packet
         }
     }
