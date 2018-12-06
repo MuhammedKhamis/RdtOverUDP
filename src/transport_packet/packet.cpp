@@ -2,14 +2,19 @@
 
 /* constructor */
 /******************************************/
-packet::packet(uint16_t check_sum, uint16_t length) : check_sum(check_sum), length(length) {}
-
-packet::~packet() {
+packet::packet(uint32_t seq_no, uint16_t check_sum, uint16_t length)
+  : seq_no(seq_no), check_sum(check_sum), length(length){
 
 }
 
 /* setters and getters */
 /******************************************/
+u_int32_t
+packet::get_seqno() const {
+  return seq_no;
+}
+
+
 uint16_t
 packet::get_checksum() const
 {
@@ -20,6 +25,16 @@ uint16_t
 packet::get_length() const
 {
   return length;
+}
+
+char*
+packet::get_data() const {
+  return data;
+}
+
+void
+packet::set_seqno(uint32_t seq_no) {
+  packet::seq_no = seq_no;
 }
 
 void
@@ -34,22 +49,20 @@ packet::set_length(uint16_t length)
   packet::length = length;
 }
 
+void
+packet::set_data(char *data) {
+  packet::data = data;
+}
+
 /* interface methods */
 /******************************************/
 char*
-packet::to_string()
-{
-  /*
+packet::to_string() const{
   string res = "" ;
-  res += "Checksum : " + to_string(packet_n.getCheck_sum()) + "\r\n";
-  res += "Length : " + to_string(packet_n.getLength()) + "\r\n";
-  res += "Seq_number : " + to_string(packet_n.getSeq_no()) + "\r\n";
-  if(packet_n.isLast_packet())
-    res += "Last_packet : YES\r\n";
-  else
-    res += "Last_packet : NO\r\n";
-  res += "Data : \r\n" ;
-  res += string(packet_n.getData()) ;
-  return res.c_str();
-  */
+  res += "Checksum : " + ::to_string(get_checksum()) + "\r\n";
+  res += "Length : " + ::to_string(get_length()) + "\r\n";
+  res += "Seq_number : " + ::to_string(get_seqno()) + "\r\n";
+  res += "\r\n" ;
+  res += string(get_data()) ;
+  return (char*)res.data();
 }

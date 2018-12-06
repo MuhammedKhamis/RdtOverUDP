@@ -9,9 +9,7 @@
 //
 //   -Checksum : number\r\n
 //   -Length : number\r\n
-//   -Seq_number : number\r\n
-//   -Last_packet : 0/1\r\n\r\n
-//   -Data : \r\n
+//   -Seq_number : number\r\n\r\n
 //   -Line 1 data
 //   -Line 2 data
 //          .
