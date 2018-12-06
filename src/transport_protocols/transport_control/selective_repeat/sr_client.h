@@ -1,11 +1,11 @@
-#ifndef SAW_CLIENT_H
-#define SAW_CLIENT_H
+#ifndef SR_CLIENT_H
+#define SR_CLIENT_H
 
 /* import libraries */
 /******************************************/
 #include <vector>
 
-#include "stop_and_wait.h"
+#include "selective_repeat.h"
 #include "../../../transport_packet/data_packet.h"
 #include "../../../transport_packet/ack_packet.h"
 
@@ -13,7 +13,7 @@ using namespace std;
 
 /* class definition */
 /******************************************/
-class saw_client : public stop_and_wait
+class sr_client : public selective_repeat
 {
 	private:
 		// attributes
@@ -22,7 +22,7 @@ class saw_client : public stop_and_wait
 
 	public:
 		// constructor
-		saw_client(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		sr_client(struct sockaddr_in client, int socket_fd, socklen_t client_len);
 		
 		//interface methods
 		void init(int expected_packets_count, vector<data_packet> *received_packets);

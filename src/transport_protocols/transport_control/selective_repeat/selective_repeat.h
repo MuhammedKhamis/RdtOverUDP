@@ -3,11 +3,6 @@
 
 /* import libraries */
 /******************************************/
-#include <vector>
-#include <string>
-#include "rdt_strategy.h"
-#include "packet.h"
-
 using namespace std;
 
 /* class definition */

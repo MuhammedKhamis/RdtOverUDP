@@ -1,7 +1,6 @@
 /* import libraries */
 /******************************************/
 #include "selective_repeat.h"
-using namespace std;
 
 /* constructor */
 /******************************************/
