@@ -12,13 +12,19 @@ using namespace std;
 /******************************************/
 class ack_packet : public packet
 {
- public:
-  ack_packet(uint16_t check_sum, uint16_t length, uint32_t ackno);
-  virtual ~ack_packet();
-  uint32_t getAckno() const;
-  void setAckno(uint32_t ackno);
- private:
-        uint32_t ackno;
+	private:
+		// attributes
+		uint32_t ackno;
+
+	public:
+		// constructor
+		ack_packet(uint16_t check_sum, uint16_t length, uint32_t ackno);
+		virtual ~ack_packet();
+
+		// setters and getters
+		uint32_t getAckno() const;
+		void setAckno(uint32_t ackno);
+
 };
 
 #endif 

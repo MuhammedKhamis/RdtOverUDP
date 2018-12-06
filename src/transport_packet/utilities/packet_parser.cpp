@@ -22,22 +22,6 @@
 
 /* interface methods */
 /******************************************/
-string packet_parser::packet_tostring(packet packet_n) {
-  /*
-  string res = "" ;
-  res += "Checksum : " + to_string(packet_n.getCheck_sum()) + "\r\n";
-  res += "Length : " + to_string(packet_n.getLength()) + "\r\n";
-  res += "Seq_number : " + to_string(packet_n.getSeq_no()) + "\r\n";
-  if(packet_n.isLast_packet())
-    res += "Last_packet : YES\r\n";
-  else
-    res += "Last_packet : NO\r\n";
-  res += "Data : \r\n" ;
-  res += string(packet_n.getData()) ;
-  return res.c_str();
-  */
-}
-
 
 int packet_parser::get_line_data(stringstream* s, string header) {
   string token;

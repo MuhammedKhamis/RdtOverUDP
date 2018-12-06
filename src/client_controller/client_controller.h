@@ -19,11 +19,16 @@ using namespace std;
 class client_controller
 {
 	private:
-		port_handler p_handler;
+		// attributes
 		rdt_strategy *strategy;
+		char* store_dir;
+		port_handler p_handler;
 
 	public:
+		// constructor
 		client_controller(int server_port);
+
+		// interface methods
 		void init();
 		void get_remote_file(char* file_name);
 };
