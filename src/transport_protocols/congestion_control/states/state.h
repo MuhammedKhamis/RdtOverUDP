@@ -1,5 +1,5 @@
-#ifndef CONGESTION_CONTROL_H
-#define CONGESTION_CONTROL_H
+#ifndef STATE_H
+#define STATE_H
 
 /* import libraries */
 /******************************************/
@@ -10,15 +10,21 @@ using namespace std;
 
 /* class definition */
 /******************************************/
-class congestion_control : public state
+class state
 {
+	protected:
+		// attributes	
+		state *next_state;
+		int *threshold;
+		int *window_size;
+
 	public:
 		// constructor
-		congestion_control(int *threshold, int *window_size);
+		state(int *threshold, int *window_size);
 
 		// interface methods
 		void set_next_state(state *next_state);
-		state* update_window_size(EVENT_TYPE event);
+		virtual state* update_window_size(EVENT_TYPE event) = 0;
 };
 
 #endif 

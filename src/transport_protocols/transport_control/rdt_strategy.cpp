@@ -1,11 +1,8 @@
 #include "rdt_strategy.h"
 
-using namespace std;
-
+/* constructor */
+/******************************************/
 rdt_strategy::rdt_strategy(struct sockaddr_in client, int socket_fd, socklen_t client_len)
-        : client(client), socket_fd(socket_fd), client_len(client_len) {
-
-}
-bool rdt_strategy::canSend() {
-    return true;
+{
+	this->p_handler(client, socket_fd, client_len);
 }

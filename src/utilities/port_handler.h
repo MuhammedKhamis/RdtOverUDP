@@ -16,26 +16,33 @@
 using namespace std;
 
 class port_handler{
-public:
+    private:
+        int socked_fd, struct sockaddr_in *dest_addr,socklen_t dest_len, struct sockaddr_in *src_addr,socklen_t *src_len;
 
-    static int write(int socked_fd, char *buffer, int sz, struct sockaddr_in *dest_addr,socklen_t dest_len);
-    static int writeExact(int socked_fd, char *buffer, int sz, struct sockaddr_in *dest_addr,socklen_t dest_len);
-    static int timeout_write(int sock, char* buf, int sz, struct sockaddr_in *dest_addr,
+    public:
+
+        port_handler(int socked_fd, struct sockaddr_in *dest_addr,socklen_t dest_len, struct sockaddr_in *src_addr,socklen_t *src_len);
+        void send(char* data, int len);
+        int receive(char *buffer, int timout); // non-blocking. timout in milli-seconds
+        void receive(char *buffer); // blocking receive
+
+
+
+    int write(char *buffer, int sz);
+    int writeExact(int socked_fd, char *buffer, int sz, struct sockaddr_in *dest_addr,socklen_t dest_len);
+    int timeout_write(int sock, char* buf, int sz, struct sockaddr_in *dest_addr,
             socklen_t dest_len, int timeoutinseconds);
 
-    static int tryRead(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
-    static int timeout_tryread(int sock, vector<char> &buf, int sz, struct sockaddr_in *src_addr,
+    int tryRead(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
+    int timeout_tryread(int sock, vector<char> &buf, int sz, struct sockaddr_in *src_addr,
                     socklen_t *src_len,int timeoutinseconds);
 
-    static int read(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
-    static int readExact(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
-    static int timeout_read (int sock, vector<char> &buf, int sz, struct sockaddr_in *src_addr,
+    int read(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
+    int readExact(int socked_fd, vector<char> &total , int sz, struct sockaddr_in *src_addr,socklen_t *src_len);
+    int timeout_read (int sock, vector<char> &buf, int sz, struct sockaddr_in *src_addr,
             socklen_t *src_len, int timeoutinseconds);
 
-    static int closeConnection(int socked_fd);
-
-private:
-    port_handler();
+    int closeConnection(int socked_fd);
 };
 
 #endif //PORT_HANDLER_H
