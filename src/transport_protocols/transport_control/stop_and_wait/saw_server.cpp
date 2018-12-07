@@ -2,15 +2,16 @@
 
 /* constructor */
 /******************************************/
-saw_server::saw_server(struct sockaddr_in client, int socket_fd, socklen_t client_len)
-        : stop_and_wait(client, socket_fd, client_len) {}
+saw_server::saw_server(port_handler *p) : stop_and_wait(p) {}
 
 /* init */
 /******************************************/
 void
-saw_server::init(vector<data_packet> &data_packets)
+saw_server::init(vector<data_packet*> &data_packets)
 {
 	this->data_packets = data_packets;
+	ack_packet ak(data_packets.size());
+	p_handler->send(ak.to_string());
 }
 
 /* implement strategy */
@@ -18,16 +19,15 @@ saw_server::init(vector<data_packet> &data_packets)
 void saw_server::implement()
 {
 
-    vector<data_packet>::iterator ptr;
+    vector<data_packet*>::iterator ptr;
     for (ptr = data_packets.begin(); ptr < data_packets.end(); ptr++)
     {
         while(1)
         {
+            data_packet* curr_pkt = *ptr;
             // 01. send packet
-            string send_data = ptr->to_string();
-            char* data = (char*)send_data.data();
-            int len = send_data.length();
-            p_handler.send(data, len);
+            string send_data =  curr_pkt->to_string();
+            p_handler->send(send_data);
 
             // 02. simulate packet loss
                 // loss_simulator.simulate();
@@ -36,12 +36,13 @@ void saw_server::implement()
             // 03. wait for the ack
             // BLOCKING receive
             // we give p_handler a TIMEOUT to stop listening to port, i.e. packet loss happened
-            char *buffer;
-            int receive_flag = p_handler.receive(buffer, TIMEOUT);
+            char buffer[MAX_REQ_SZ] = {0};
+            int receive_flag = p_handler->receive(buffer);
             if(receive_flag == 0){continue;} // timed-out, or packet loss -> resend packet
 
             // 04. check seq no
             // received ack seq_no will always be the one i just sent
+            delete curr_pkt;
             break; // send next packet
         }
     }

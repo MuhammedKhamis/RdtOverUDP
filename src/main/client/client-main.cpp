@@ -2,6 +2,7 @@
 /*************************************/
 
 #include <bits/stdc++.h>
+#include <client_controller.h>
 
 using namespace std;
 
@@ -9,14 +10,16 @@ using namespace std;
 /*************************************/
 int
 main(int argc, char const *argv[]) 
-{ 
-	// some attributes
-	char *file_dir = "test.html";
+{
+    chdir("../../../data/client/");
+
+    // some attributes
+	char file_dir[] = "test.txt";
+
 	// create client obj
-    client_controller client();
+    client_controller client(8000);
     client.init();
-    // receive remote file
     client.get_remote_file(file_dir);
 
-    return 0; 
+    return 0;
 }

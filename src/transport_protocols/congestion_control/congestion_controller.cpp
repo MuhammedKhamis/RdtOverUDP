@@ -1,6 +1,6 @@
-#include <congestion_control/states/slow_start.h>
-#include <congestion_control/states/congestion_control.h>
 #include "congestion_controller.h"
+#include "states/slow_start.h"
+#include "states/congestion_control.h"
 
 /* constructor */
 /******************************************/
@@ -9,12 +9,13 @@ congestion_controller::congestion_controller()
 	this->threshold = INITIAL_THRESHOLD;
 	this->window_size = 1;
 
-	state *slow_start = new slow_start(&threshold, &window_size);
-	state *congestion_control = new congestion_control(&threshold, &window_size);
-	this->curr_state = slow_start;
 
-	slow_start->set_next_state(congestion_control);
-	congestion_control->set_next_state(slow_start);
+	state *slow_s = new slow_start(&threshold, &window_size);
+	state *congestion_c = new congestion_control(&threshold, &window_size);
+	this->curr_state = slow_s;
+
+	slow_s->set_next_state(congestion_c);
+	congestion_c->set_next_state(slow_s);
 }
 
 /* interface methods */

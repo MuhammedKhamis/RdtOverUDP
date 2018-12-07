@@ -2,8 +2,12 @@
 
 /* constructor */
 /******************************************/
-packet::packet(uint32_t seq_no, uint16_t check_sum, uint16_t length)
-  : seq_no(seq_no), check_sum(check_sum), length(length){
+packet::packet(uint32_t seq_no): seq_no(seq_no){
+
+}
+
+packet::packet(uint32_t seq_no, uint16_t len, uint16_t checksum)
+    : length(len), check_sum(checksum), seq_no(seq_no) {
 
 }
 
@@ -25,23 +29,6 @@ uint16_t
 packet::get_length() const
 {
   return length;
-}
-
-void
-packet::set_seqno(uint32_t seq_no) {
-  packet::seq_no = seq_no;
-}
-
-void
-packet::set_checksum(uint16_t check_sum)
-{
-  packet::check_sum = check_sum;
-}
-
-void
-packet::set_length(uint16_t length)
-{
-  packet::length = length;
 }
 
 string packet::handle_number_sz(uint32_t num, int expected) {

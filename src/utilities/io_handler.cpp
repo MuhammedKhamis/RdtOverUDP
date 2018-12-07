@@ -3,7 +3,7 @@
 /* interface functions */
 /******************************************/
 void
-io_handler::read_file(char file_dir[], vector<string> &file_buffer)
+io_handler::read_file(string file_dir, vector<string> &file_buffer)
 {
 	ifstream file(file_dir);
 	if (file.is_open()) {
@@ -16,7 +16,7 @@ io_handler::read_file(char file_dir[], vector<string> &file_buffer)
 	}
 }
 
-void io_handler::write_file(char *file_dir, vector<string> &file_buffer) {
+void io_handler::write_file(string file_dir, vector<string> &file_buffer) {
 	ofstream file(file_dir);
 	if (file.is_open()) {
 		for(string s : file_buffer){

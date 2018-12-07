@@ -9,9 +9,13 @@
 /* constructor */
 /******************************************/
 
-connection_handler::connection_handler(struct sockaddr_in client, char* file_name, socklen_t client_len)
-        : curr_client(client), file_name(file_name), client_len(client_len) {
+connection_handler::connection_handler(struct sockaddr_in client, char* file_packet, socklen_t client_len)
+        : curr_client(client), file_packet(file_packet), client_len(client_len) {
 
+    char cwd[PATH_MAX];
+    getcwd(cwd, sizeof(cwd));
+
+    file_dir = string(cwd) + "/data/server/";
 
     // Creating socket file descriptor
     if ((socket_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
@@ -19,18 +23,23 @@ connection_handler::connection_handler(struct sockaddr_in client, char* file_nam
         exit(EXIT_FAILURE);
     }
 
+    p = new port_handler(socket_fd, &curr_client, &client_len);
+
     //choose the strategy
-	strategy = new saw_server(curr_client, socket_fd, client_len);
+	strategy = new saw_server(p);
 }
 /* interface methods */
 /******************************************/
 void
 connection_handler::handle_client()
 {
-    //TODO
+    string file_string(file_packet);
 
     //parse datapacket that contain filename.
+    data_packet* file_info = packet_parser::create_datapacket(file_string);
+
     //get filename
+    string file_name = file_info->get_data();
 
     vector<string> file_lines;
 
@@ -38,11 +47,12 @@ connection_handler::handle_client()
 	io_handler::read_file(file_name, file_lines);
 
 	// 02. disassemble file into packets
-    vector<data_packet> file_packets;
+    vector<data_packet*> file_packets;
     for(string file_line: file_lines){
-        vector<data_packet> line_packets = packet_manager::disassemble_data(file_line);
+        vector<data_packet*> line_packets = packet_manager::disassemble_data(file_line);
         file_packets.insert(file_packets.end(), line_packets.begin(), line_packets.end());
     }
+    // send number of packets as ack packet
 
     // 03. implement RDT strategy
     strategy->init(file_packets);
@@ -52,4 +62,5 @@ connection_handler::handle_client()
 
 connection_handler::~connection_handler() {
     delete strategy;
+    delete p;
 }

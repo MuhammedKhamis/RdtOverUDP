@@ -56,6 +56,13 @@ vector<string> packet_parser::tokenize(string s, string delimiter) {
 
 }
 
+tuple<uint16_t ,uint16_t, uint32_t> packet_parser::get_header_info(vector<string> &tokens) {
+  uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
+  uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
+  uint32_t seqno = get_token_value(tokens[SEQ_IDX]);
+  return make_tuple(checksum, len, seqno);
+}
+
 uint32_t packet_parser::get_token_value(string line) {
   size_t pos = 0;
   string key ;
@@ -67,7 +74,7 @@ uint32_t packet_parser::get_token_value(string line) {
 
   value = (uint32_t)stoul(line);
 
-  if(key.empty() || value.empty()){
+  if(key.empty()){
     perror("Header line in request has wrong format\nRequired :\nKey: Value\n") ;
     return -1 ;
   }
@@ -75,11 +82,13 @@ uint32_t packet_parser::get_token_value(string line) {
 }
 
 
-packet *packet_parser::create_datapacket(string data) {
+data_packet *packet_parser::create_datapacket(string data) {
   vector<string> tokens = tokenize(data, DELM);
-  uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
-  uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
-  uint32_t seqno = get_token_value(tokens[SEQ_IDX]);
+
+  tuple<uint32_t ,uint16_t ,uint16_t > res = get_header_info(tokens);
+  uint32_t seqno = get<SEQ_IDX>(res);
+  uint16_t len = get<LEN_IDX>(res);
+  uint16_t checksum = get<CS_IDX>(res);
 
   string buffer = "";
   for(int i = SEQ_IDX + 2 ; i < tokens.size(); i++){
@@ -88,15 +97,18 @@ packet *packet_parser::create_datapacket(string data) {
       buffer += "\r\n";
     }
   }
-  return new data_packet(checksum, len, seqno, buffer);
+  return new data_packet(seqno, len, checksum, buffer);
 }
 
-packet *packet_parser::create_ackpacket(string data) {
-    vector<string> tokens = tokenize(data, DELM);
-    uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
-    uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
-    uint32_t seqno = get_token_value(tokens[SEQ_IDX]);
-  return new ack_packet(checksum, len, seqno);
+ack_packet *packet_parser::create_ackpacket(string data) {
+  vector<string> tokens = tokenize(data, DELM);
+
+  tuple<uint32_t ,uint16_t ,uint16_t > res = get_header_info(tokens);
+  uint32_t seqno = get<SEQ_IDX>(res);
+  uint16_t len = get<LEN_IDX>(res);
+  uint16_t checksum = get<CS_IDX>(res);
+
+  return new ack_packet(seqno, len, checksum);
 }
 
 

@@ -4,7 +4,10 @@
 /* import libraries */
 /******************************************/
 #include "../utilities/port_handler.h"
-
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 using namespace std;
 
 /* class definition */
@@ -13,11 +16,11 @@ class rdt_strategy
 {
 	protected:
 		// attributes
-		port_handler p_handler;
+		port_handler *p_handler;
 		
 	public:
 		// constructor
-		rdt_strategy(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		rdt_strategy(port_handler *p);
 		virtual ~rdt_strategy() = default;
 
 		// interface methods

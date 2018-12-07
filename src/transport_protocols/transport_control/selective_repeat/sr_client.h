@@ -22,7 +22,7 @@ class sr_client : public selective_repeat
 
 	public:
 		// constructor
-		sr_client(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		sr_client(port_handler *p);
 		
 		//interface methods
 		void init(int expected_packets_count, vector<data_packet> *received_packets);

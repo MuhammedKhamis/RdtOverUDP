@@ -15,11 +15,13 @@ class data_packet : public packet
   private:
     // attributes
     string data;
-
+    void calc_checksum();
   public:
-    // constructor
-    data_packet();
-    data_packet(uint16_t check_sum, uint16_t length, uint32_t seq_no, string data);
+    // constuctor for sending data packets
+    data_packet(uint32_t seq_no, string data);
+    // constructor for recv data packets
+    data_packet(uint32_t seq_no, uint16_t len, uint16_t checksum, string data);
+
     virtual ~data_packet();
 
     string get_data();

@@ -2,11 +2,15 @@
 
 /* constructor */
 /******************************************/
+circular_array::circular_array() {
+
+}
+
 circular_array::circular_array(int size)
 {
 	this->data_array.resize(size);
 	this->start = 0 ;
-	this->end = 0 ;
+	this->last = 0 ;
 	this->size = 0 ;
 }
 
@@ -18,11 +22,11 @@ circular_array::insert(struct packet_info pkt)
 	if(is_full() == 1){
 		return -1 ;
 	}
-	data_array[end] = pkt;
+	data_array[last] = pkt;
 
-	end++ ;
+	last++ ;
 	size++ ;
-	end %= data_array.size() ;
+	last %= data_array.size() ;
 
 	return 1;
 }
@@ -60,11 +64,16 @@ circular_array::begin(){
 	return data_array.begin() ;
 }
 
+vector<packet_info>::iterator
+circular_array::end() {
+	return data_array.end();
+}
+
 void circular_array::update_array(int size){
 	vector<packet_info> db_array(size) ;
 	int i = start , j = start , siz = 0 ;
 
-	while(i < end && siz < size) {
+	while(i < last && siz < size) {
 		db_array[j] = data_array[i] ;
 		i++ ;
 		j++ ;

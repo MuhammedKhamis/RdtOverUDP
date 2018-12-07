@@ -18,14 +18,14 @@ class saw_client : public stop_and_wait
 	private:
 		// attributes
 		int expected_packets_count;
-		vector<data_packet> *received_packets;
+		vector<data_packet*> received_packets;
 
 	public:
 		// constructor
-		saw_client(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		saw_client(port_handler *p);
 		
 		//interface methods
-		void init(int expected_packets_count, vector<data_packet> *received_packets);
+		void init(int expected_packets_count, vector<data_packet*> &received_packets);
 		void implement();
 		
 };

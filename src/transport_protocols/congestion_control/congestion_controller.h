@@ -5,9 +5,9 @@
 /******************************************/
 #include <vector>
 #include <string>
+#include "states/state.h"
 using namespace std;
 
-#define INITIAL_THRESHOLD 100 // 100 max packet size
 /* class definition */
 /******************************************/
 class congestion_controller

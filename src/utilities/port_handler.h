@@ -20,14 +20,14 @@ using namespace std;
 class port_handler{
     private:
         int socked_fd;
-        struct sockaddr_in else_addr;
-        socklen_t else_len;
+        struct sockaddr_in *else_addr;
+        socklen_t *else_len;
     public:
 
         port_handler();
-        port_handler(int &socked_fd, struct sockaddr_in &else_addr,socklen_t &else_len);
+        port_handler(int &socked_fd, struct sockaddr_in *else_addr,socklen_t *else_len);
 
-        void send(char* data, int len);
+        void send(string data);
         int receive(char *buffer); // blocking receive
         int receive(char *buffer, int timout); // non-blocking. timout in milli-seconds
 

@@ -13,11 +13,17 @@ using namespace std;
 /******************************************/
 class ack_packet : public packet
 {
-	public:
-		// constructor
-		ack_packet(uint16_t check_sum, uint16_t length, uint32_t ackno);
-		virtual ~ack_packet();
-		string to_string();
+private:
+	void calc_checksum();
+
+public:
+	// constructor used for sending ack packets
+	ack_packet(uint32_t ackno);
+	// constructor used for recieving ack packets
+	ack_packet(uint32_t ackno, uint16_t len, uint16_t checksum);
+	virtual ~ack_packet();
+	string to_string();
+
 
 };
 

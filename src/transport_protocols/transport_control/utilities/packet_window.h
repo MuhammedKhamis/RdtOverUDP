@@ -23,13 +23,14 @@ class circular_array
 		// attributes
 		vector<struct packet_info> data_array;
 		int start = 0 ;
-		int end = 0 ;
+		int last = 0 ;
 		int size;
 
 		// utility methods
 
 	public:
 		// constructor
+		circular_array();
 		circular_array(int size);
 
 		// interface methods
@@ -37,6 +38,7 @@ class circular_array
 		int mark_acked(int seq_no); // marks certain packet as acknowledged
 		void update_array(int) ; // update window size
         vector<packet_info>::iterator begin(); // returns iterator
+		vector<packet_info>::iterator end(); // returns iterator
         bool is_full() ;
 };
 

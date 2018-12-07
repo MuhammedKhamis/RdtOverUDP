@@ -1,20 +1,14 @@
-#include <bits/socket.h>
-#include <netinet/in.h>
 #include "sr_server.h"
 
 /* constructor */
 /******************************************/
-sr_server::sr_server(struct sockaddr_in client, int socket_fd, socklen_t client_len)
-        : selective_repeat(client,socket_fd, client_len){
-}
+sr_server::sr_server(port_handler *p) : selective_repeat(p) {}
 
 /* interface method */
 /******************************************/
-void
-init(vector<data_packet> data_packets)
-{
+
+void sr_server::init(vector<data_packet *> &data_packets) {
 	p_window = circular_array(INIT_WIN_LEN);
-	this->con_controller();
 	this->data_packets = data_packets;
 }
 
@@ -23,6 +17,7 @@ init(vector<data_packet> data_packets)
 void
 sr_server::implement()
 {
+    /*
 	int sent_pkts_counter = 0; // how many packets are sent
 	int ack_pkts_counter = 0; // how many packets are acked
 
@@ -40,7 +35,7 @@ sr_server::implement()
 	while(ack_pkts_counter < data_packets->length())
 	{
 		// wait for ack
-		char *buffer;
+        char buffer[MAX_REQ_SZ] = {0};
 		p_handler.receive(buffer); // blocked receive
 		ack_packet packet = packet_parser::parse_ack_packet(buffer);
 
@@ -57,7 +52,7 @@ sr_server::implement()
 
 	// 04. implementation done
 	implementation_done_flag = 1; // to exit timer thread
-
+*/
 }
 
 
@@ -67,12 +62,12 @@ void
 sr_server::send_packet(int seq_no)
 {
 	// get packet by seq_no
-	data_packet curr_pkt = data_packets->at(seq_no);
+	data_packet *curr_pkt = data_packets[seq_no];
 	// send packet to client
-	p_handler.send(curr_pkt.to_string());
+	p_handler->send(curr_pkt->to_string());
 	// create new entry
 	struct packet_info tmp;
-	tmp.seq_no = curr_pkt.get_seq_no();
+	tmp.seq_no = curr_pkt->get_seqno();
 	tmp.acked = 0;
 	time(&tmp.start_time);
 	// insert into window
@@ -101,7 +96,7 @@ sr_server::timer_handler()
 	    	time(&curr_time); // get system current time
 	    	if(difftime(curr_time, ptr->start_time) < TIMEOUT){continue;} // NOT timed-out --> skip
 	    	// handle timed-out packet
-	    	p_handler.send(data_packets->at(ptr->seq_no).to_string()); // resend packet
+	    	p_handler->send(data_packets[ptr->seq_no]->to_string()); // resend packet
 	    	time(&ptr->start_time); // reset timer
 	    }
 	}

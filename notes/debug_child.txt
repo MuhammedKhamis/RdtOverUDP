@@ -1,0 +1,8 @@
+How to debug child process ?
+
+Ans: https://stackoverflow.com/questions/36221038/how-to-debug-a-forked-child-process-using-clion
+
+used Commands
+
+set follow-fork-mode child
+set detach-on-fork off

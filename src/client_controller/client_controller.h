@@ -13,6 +13,7 @@
 #include <netinet/in.h>
 #include "../utilities/port_handler.h"
 #include "../transport_protocols/transport_control/rdt_strategy.h"
+#include "../transport_protocols/transport_control/stop_and_wait/saw_client.h"
 
 using namespace std;
 
@@ -22,16 +23,17 @@ class client_controller
 {
 	private:
 		// attributes
-		rdt_strategy *strategy;
+		saw_client *strategy;
 		char* store_dir;
-		port_handler p_handler;
+		port_handler *p_handler;
 		int server_port;
 		int socket_fd;
 		struct sockaddr_in else_addr;
 		socklen_t else_len;
+		string file_dir;
 
 	public:
-		client_controller();
+		//client_controller();
 		// constructor
 		client_controller(int server_port);
 

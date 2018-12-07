@@ -17,14 +17,14 @@ class saw_server : public stop_and_wait
 {
 	private:
 		// attributes
-		vector<data_packet> data_packets;
+		vector<data_packet*> data_packets;
 
 	public:
 		// constructor
-		saw_server(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		saw_server(port_handler *p);
 		
 		//interface methods
-		void init(vector<data_packet> &data_packets);
+		void init(vector<data_packet*> &data_packets);
 		void implement();
 		
 };

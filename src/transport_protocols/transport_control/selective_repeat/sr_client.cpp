@@ -2,8 +2,7 @@
 
 /* constructor */
 /******************************************/
-sr_client::sr_client(struct sockaddr_in client, int socket_fd, socklen_t client_len)
-        : stop_and_wait(client, socket_fd, client_len) {}
+sr_client::sr_client(port_handler *p) : selective_repeat(p) {}
 
 /* init */
 /******************************************/
@@ -19,7 +18,7 @@ sr_client::init(int expected_packets_count, vector<data_packet> *received_packet
 void sr_client::implement()
 {
 	set<int> received_seq_no;
-
+/*
     while(received_pkt_count < expected_packets_count)
     {
         // 01. BLOCKING receive
@@ -41,5 +40,6 @@ void sr_client::implement()
         received_packets->push_back(curr_pkt);
         received_seq_no.insert(pkt_seq_no);
     }
+    */
     
 }

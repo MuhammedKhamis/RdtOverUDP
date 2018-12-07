@@ -12,7 +12,7 @@ class stop_and_wait : public rdt_strategy
 {
 	public:
 		// constructor
-		stop_and_wait(struct sockaddr_in client, int socket_fd, socklen_t client_len);
+		stop_and_wait(port_handler *p);
 		
 		//interface methods
 		virtual void implement() = 0;

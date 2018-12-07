@@ -12,4 +12,11 @@
 
 #define DATA_SZ 500
 
+/* event types for congestion control */
+enum EVENT_TYPE {ACK, TIMEOUT};
+
+
+#define MSS 512
+#define INITIAL_THRESHOLD 64 * MSS
+
 #endif

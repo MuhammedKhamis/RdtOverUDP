@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <bits/stdc++.h>
+#include <constants.h>
 
 using namespace std;
 
@@ -15,18 +16,19 @@ class packet
 {
   private:
     // attributes
-    uint16_t check_sum;
-    uint16_t length;
-    uint32_t seq_no;
     string handle_number_sz(uint32_t num, int expected);
 
 protected:
+    uint16_t check_sum;
+    uint16_t length;
+    uint32_t seq_no;
     string stringfy_header();
+    virtual void calc_checksum() = 0;
 
   public:
     // constructor
-    packet();
-    packet(uint32_t seq_no, uint16_t check_sum, uint16_t length);
+    packet(uint32_t seq_no);
+    packet(uint32_t seq_no, uint16_t len, uint16_t checksum);
     virtual ~packet() = default;
 
     // interface methods
@@ -36,10 +38,6 @@ protected:
     uint16_t get_checksum() const;
     uint16_t get_length() const;
     u_int32_t get_seqno() const;
-
-    void set_checksum(uint16_t check_sum);
-    void set_length(uint16_t length);
-    void set_seqno(uint32_t seq_no);
 
 };
 

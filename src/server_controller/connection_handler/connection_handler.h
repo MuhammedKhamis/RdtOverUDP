@@ -21,16 +21,18 @@ using namespace std;
 class connection_handler
 {
 	public:
-		connection_handler(struct sockaddr_in client, char *file_name, socklen_t client_len);
+		connection_handler(struct sockaddr_in client, char *file_packet, socklen_t client_len);
 		~connection_handler();
 		void handle_client();
 
 private:
 	struct sockaddr_in curr_client;
 	saw_server* strategy;
-	char* file_name;
+	port_handler *p;
+	char* file_packet;
 	int socket_fd;
 	socklen_t client_len;
+	string file_dir;
 };
 
 #endif 

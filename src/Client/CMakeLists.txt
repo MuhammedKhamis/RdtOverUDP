@@ -26,10 +26,10 @@ include_directories(${APP_CONSTANTS})
 include_directories(${APP_CLIENT})
 
 
-file(GLOB_RECURSE SRC_FILES ${APP_UTIL}/* ${APP_PACKET}/* ${APP_PROTOCOL}/* ${APP_CONSTANTS}/*)
+file(GLOB_RECURSE SRC_FILES ${APP_UTIL}/* ${APP_PACKET}/* ${APP_PROTOCOL}/*
+        ${APP_CONSTANTS}/*  ${APP_CLIENT}/*)
 
 add_executable(RdtClient.out
         ../main/client/client-main.cpp
-        ${SRC_FILES}
-        ${APP_CLIENT})
+        ${SRC_FILES})
 

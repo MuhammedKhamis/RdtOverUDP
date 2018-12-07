@@ -6,13 +6,15 @@
 
 port_handler::port_handler() {}
 
-port_handler::port_handler(int &socked_fd, struct sockaddr_in &else_addr, socklen_t &else_len)
+port_handler::port_handler(int &socked_fd, struct sockaddr_in *else_addr, socklen_t *else_len)
         :socked_fd(socked_fd), else_addr(else_addr), else_len(else_len){
 
 }
 
-void port_handler::send(char *data, int len) {
-    writeExact(data,len);
+void port_handler::send(string data) {
+    char* buff = (char*) data.data();
+    int len = data.size();
+    writeExact(buff, len);
 }
 
 int port_handler::writeExact(char *buffer, int sz) {
@@ -21,6 +23,7 @@ int port_handler::writeExact(char *buffer, int sz) {
     while (len  > 0){
         int status = write(ptr, len);
         if(status == -1){
+            printf("%s\n", strerror(errno));
             return status;
         }
         if(status == 0){
@@ -33,20 +36,19 @@ int port_handler::writeExact(char *buffer, int sz) {
 }
 
 int port_handler::write(char *buffer, int sz) {
-    return sendto(socked_fd, buffer, sz, MSG_CONFIRM, (const struct sockaddr *) &else_addr, else_len);
+    return sendto(socked_fd, buffer, sz, MSG_CONFIRM, (const struct sockaddr *) else_addr, *else_len);
 }
 
 
 int port_handler::receive(char *buffer) {
 
     // 01. init an array;
-    buffer = (char* )malloc(MAX_REQ_SZ);
-    memset(buffer, 0, MAX_REQ_SZ);
     tryRead(buffer, HEADER_SZ);
     string pkt(buffer);
     int len = packet_parser::get_packet_length(pkt);
     memset(buffer, 0, MAX_REQ_SZ);
-    return readExact(buffer, len);
+    int n  = readExact(buffer, len);
+    return n;
 }
 
 int port_handler::receive(char *buffer, int timout) {
@@ -82,11 +84,11 @@ int port_handler::readExact(char* total , int sz) {
 }
 
 int port_handler::read(char* total , int sz) {
-    return recvfrom(socked_fd, total, sz, MSG_WAITALL, ( struct sockaddr *) &else_addr, &else_len);
+    return recvfrom(socked_fd, total, sz, MSG_WAITALL, ( struct sockaddr *) else_addr, else_len);
 }
 
 int port_handler::tryRead(char* total , int sz) {
-    return recvfrom(socked_fd, total, sz, MSG_WAITALL | MSG_PEEK, ( struct sockaddr *) &else_addr, &else_len);
+    return recvfrom(socked_fd, total, sz, MSG_WAITALL | MSG_PEEK, ( struct sockaddr *) else_addr, else_len);
 }
 
 int port_handler::closeConnection() {
