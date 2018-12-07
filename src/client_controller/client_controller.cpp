@@ -40,14 +40,15 @@ client_controller::init()
 /* run client --> get remote file */
 /******************************************/
 int
-client_controller::get_remote_file(char* file_name) { 
+client_controller::get_remote_file(string file_name) {
 
 	// 01. send request (file name)
     data_packet request(0, string(file_name));
     p_handler->send(request.to_string());
 
     // 02. receive ack
-    char buffer[MAX_REQ_SZ] = {0};
+    string buffer;
+
     p_handler->receive(buffer); // blocking receive
 
     ack_packet *response = packet_parser::create_ackpacket(buffer);
@@ -57,10 +58,14 @@ client_controller::get_remote_file(char* file_name) {
 	// 02. implement strategy
     vector<data_packet*> received_packets;
     strategy = new saw_client(p_handler); // ------> implement
-    strategy->init(expected_packets_count, received_packets);
+    strategy->init(expected_packets_count, &received_packets);
     strategy->implement();
     // sort packets ------------------------------------------->> implement
 
 	// 03. save file to disk
     string file = packet_manager::assemble_data(received_packets);
+
+    io_handler::writeData(file_name, (char*) file.data(), file.size());
+
+    return 0;
 } 

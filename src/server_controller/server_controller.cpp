@@ -42,7 +42,7 @@ void server_controller::run_server() {
         memset(&cliaddr, 0, sizeof(cliaddr));
 
         port_handler p(socket_fd, &cliaddr, &len);
-        char buffer[MAX_REQ_SZ] = {0};
+        string buffer;
         n = p.receive(buffer);
 
         // Fork to another process to handle that connection

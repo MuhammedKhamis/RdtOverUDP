@@ -9,7 +9,7 @@
 /* constructor */
 /******************************************/
 
-connection_handler::connection_handler(struct sockaddr_in client, char* file_packet, socklen_t client_len)
+connection_handler::connection_handler(struct sockaddr_in client, string file_packet, socklen_t client_len)
         : curr_client(client), file_packet(file_packet), client_len(client_len) {
 
     char cwd[PATH_MAX];
@@ -23,7 +23,7 @@ connection_handler::connection_handler(struct sockaddr_in client, char* file_pac
         exit(EXIT_FAILURE);
     }
 
-    p = new port_handler(socket_fd, &curr_client, &client_len);
+    p = new port_handler(socket_fd, &this->curr_client, &this->client_len);
 
     //choose the strategy
 	strategy = new saw_server(p);
@@ -33,31 +33,34 @@ connection_handler::connection_handler(struct sockaddr_in client, char* file_pac
 void
 connection_handler::handle_client()
 {
-    string file_string(file_packet);
 
     //parse datapacket that contain filename.
-    data_packet* file_info = packet_parser::create_datapacket(file_string);
+    data_packet* file_info = packet_parser::create_datapacket(file_packet);
 
     //get filename
     string file_name = file_info->get_data();
 
     vector<string> file_lines;
 
-	// 01. read file from disk
-	io_handler::read_file(file_name, file_lines);
+    int len = io_handler::getFileSize(file_name);
 
-	// 02. disassemble file into packets
+    char *data = (char*)malloc(len);
+
+    // 01. read file from disk
+    io_handler::readData(file_name, data, len);
+
+    // 02. disassemble file into packets
+	uint32_t seq_start = 0;
     vector<data_packet*> file_packets;
-    for(string file_line: file_lines){
-        vector<data_packet*> line_packets = packet_manager::disassemble_data(file_line);
-        file_packets.insert(file_packets.end(), line_packets.begin(), line_packets.end());
-    }
+    string data_string(data, len);
+
+    file_packets = packet_manager::disassemble_data(data_string, seq_start);
     // send number of packets as ack packet
 
     // 03. implement RDT strategy
     strategy->init(file_packets);
 	strategy->implement();
-
+    free(data);
 }
 
 connection_handler::~connection_handler() {

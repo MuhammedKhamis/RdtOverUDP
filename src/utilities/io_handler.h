@@ -14,10 +14,11 @@ using namespace std;
 class io_handler
 {
 	public:
-		static void read_file(string file_dir, vector<string> &file_buffer);
-		static void write_file(string file_dir, vector<string> &file_buffer);
-
+        static int writeData(string fileName, char *data ,int len);
+        static int readData(string fileName, char *data , int len);
+        static int getFileSize(string fileName);
 	private:
+        static bool fileExist(string fileName);
 		// Disallow creating an instance of this object
 		io_handler(){}
 };

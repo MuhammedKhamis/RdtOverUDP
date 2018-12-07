@@ -40,7 +40,7 @@ class client_controller
 
 		// interface methods
 		void init();
-		int get_remote_file(char* file_name);
+		int get_remote_file(string file_name);
 };
 
 #endif 

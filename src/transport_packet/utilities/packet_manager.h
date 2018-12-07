@@ -16,7 +16,7 @@ class packet_manager
 	public:
 
 		static string assemble_data(vector<data_packet*> packet_queue);
-		static vector<data_packet*> disassemble_data(string data);
+		static vector<data_packet*> disassemble_data(string data, uint32_t seq_no);
 
 
 	private:

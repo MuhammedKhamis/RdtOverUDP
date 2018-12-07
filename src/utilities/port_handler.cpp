@@ -40,23 +40,23 @@ int port_handler::write(char *buffer, int sz) {
 }
 
 
-int port_handler::receive(char *buffer) {
+int port_handler::receive(string &buffer) {
 
     // 01. init an array;
-    tryRead(buffer, HEADER_SZ);
-    string pkt(buffer);
+    char buf[MAX_REQ_SZ] = {0};
+    tryRead(buf, HEADER_SZ);
+    string pkt(buf);
     int len = packet_parser::get_packet_length(pkt);
-    memset(buffer, 0, MAX_REQ_SZ);
-    int n  = readExact(buffer, len);
+    int n  = readExact(buf, len);
+    buffer = string(buf, n);
     return n;
 }
 
-int port_handler::receive(char *buffer, int timout) {
+int port_handler::receive(string &buffer, int timout) {
     fd_set socks;
-    struct timeval t;
+    struct timeval t = { 0, timout * 1000};
     FD_ZERO(&socks);
     FD_SET(socked_fd, &socks);
-    t.tv_sec = timout;
     int n;
     if (select(socked_fd + 1, &socks, NULL, NULL, &t) && (n = receive(buffer)) != -1)
     {
@@ -89,6 +89,14 @@ int port_handler::read(char* total , int sz) {
 
 int port_handler::tryRead(char* total , int sz) {
     return recvfrom(socked_fd, total, sz, MSG_WAITALL | MSG_PEEK, ( struct sockaddr *) else_addr, else_len);
+}
+
+string port_handler::to_string() {
+    stringstream ss;
+    ss <<  "else_len: " << *else_len << endl;
+    ss << "else_addr: ";
+    ss << else_addr->sin_port << ", " << else_addr->sin_family;
+    return ss.str();
 }
 
 int port_handler::closeConnection() {

@@ -72,7 +72,7 @@ uint32_t packet_parser::get_token_value(string line) {
     line.erase(0, pos + 2);
   }
 
-  value = (uint32_t)stoul(line);
+  value = (uint32_t)stoi(line);
 
   if(key.empty()){
     perror("Header line in request has wrong format\nRequired :\nKey: Value\n") ;
@@ -128,7 +128,7 @@ pair<string, string> packet_parser::seperate_headers_data(string data) {
 vector<string> packet_parser::divide_data_size(string data , int size = 500){
   vector<string> data_divide;
   for(int i = 0 ; i < data.size() ; i += size){
-    string chunk = data.substr(i,i+size) ;
+    string chunk = data.substr(i, size) ;
     data_divide.push_back(chunk) ;
 }
 

@@ -15,8 +15,6 @@ string packet_manager::assemble_data(vector<data_packet*> packet_queue) {
   // sort data by seq number to be in order
   sort(packet_queue.begin() , packet_queue.end() , comp) ;
 
-  //TODO check packets check sum is good
-
   // concatenate all packets data set
   string data = "" ;
   for(data_packet *p : packet_queue) {
@@ -27,9 +25,8 @@ string packet_manager::assemble_data(vector<data_packet*> packet_queue) {
   return data ;
 }
 
-vector<data_packet*> packet_manager::disassemble_data(string data) {
+vector<data_packet*> packet_manager::disassemble_data(string data, uint32_t seq_no) {
   // sequence number starts from zero for each packet
-  uint32_t seq_no = 0 ;
   // parser divide data to chunks
   vector<string> chunks = packet_parser::divide_data_size(data, DATA_SZ) ;
 
