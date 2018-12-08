@@ -1,6 +1,4 @@
 #include "congestion_controller.h"
-#include "states/slow_start.h"
-#include "states/congestion_control.h"
 
 /* constructor */
 /******************************************/

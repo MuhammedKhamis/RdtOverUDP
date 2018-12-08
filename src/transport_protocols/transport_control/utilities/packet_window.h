@@ -7,6 +7,13 @@
 #include <time.h>
 using namespace std;
 
+/* data structures */
+/******************************************/
+struct packet_info {
+	int seq_no; // packet seq-no
+	int acked; // boolean 0,1
+	time_t start_time; // start time (timer) for this packet
+};
 
 /* class definition */
 /******************************************/

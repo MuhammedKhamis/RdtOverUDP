@@ -7,8 +7,8 @@ sr_server::sr_server(port_handler *p) : selective_repeat(p) {}
 /* interface method */
 /******************************************/
 
-void sr_server::init(vector<data_packet *> &data_packets) {
-	p_window = circular_array(INIT_WIN_LEN);
+void sr_server::init(vector<data_packet*> &data_packets) {
+	p_window = packet_window(INIT_WIN_LEN);
 	this->data_packets = data_packets;
 }
 
@@ -17,7 +17,6 @@ void sr_server::init(vector<data_packet *> &data_packets) {
 void
 sr_server::implement()
 {
-    /*
 	int sent_pkts_counter = 0; // how many packets are sent
 	int ack_pkts_counter = 0; // how many packets are acked
 
@@ -25,34 +24,46 @@ sr_server::implement()
 	while(sent_pkts_counter < INIT_WIN_LEN)
 	{
 		send_packet(sent_pkts_counter);
+		
 		sent_pkts_counter++;
+		if(sent_pkts_counter >= data_packets.size())
+		{
+			implementation_done_flag = 1; // to exit timer thread
+			cout << "success -------------" << endl;
+			return;
+		}
 	}
 
 	// 02. run Timer thread
-	pthread_create(&time_handler_id, NULL, run_timer_handler, this);
+	pthread_create(&time_handler_id, NULL, run_timer_thread, this);
 
 	// 03. wait for acknowledgements
-	while(ack_pkts_counter < data_packets->length())
+	while(ack_pkts_counter < data_packets.size())
 	{
 		// wait for ack
-        char buffer[MAX_REQ_SZ] = {0};
-		p_handler.receive(buffer); // blocked receive
-		ack_packet packet = packet_parser::parse_ack_packet(buffer);
+        string buffer;
+		p_handler->receive(buffer); // blocked receive
+		ack_packet *packet = packet_parser::create_ackpacket(buffer);
 
 		// update window
-		int remaining_window = p_window.mark_acked(packet.get_seq_no());
+		int remaining_window = p_window.mark_acked(packet->get_seqno());
 		// send new open space
 		while(remaining_window > 0)
 		{
 			send_packet(sent_pkts_counter);
-			sent_pkts_counter++;
 			remaining_window--;
+			sent_pkts_counter++;
+			if(sent_pkts_counter >= data_packets.size())
+			{
+				implementation_done_flag = 1; // to exit timer thread
+				return;
+			}
 		}
 	}
 
 	// 04. implementation done
 	implementation_done_flag = 1; // to exit timer thread
-*/
+
 }
 
 
@@ -61,8 +72,10 @@ sr_server::implement()
 void
 sr_server::send_packet(int seq_no)
 {
+	cout << "pkt string : " << data_packets.at(seq_no)->to_string() << endl;
+	cout << "seq " << seq_no << endl;
 	// get packet by seq_no
-	data_packet *curr_pkt = data_packets[seq_no];
+	data_packet *curr_pkt = data_packets.at(seq_no);
 	// send packet to client
 	p_handler->send(curr_pkt->to_string());
 	// create new entry
@@ -94,9 +107,9 @@ sr_server::timer_handler()
 	    {
 	    	if(ptr->acked == 1){continue;} // acked pkt -> skip
 	    	time(&curr_time); // get system current time
-	    	if(difftime(curr_time, ptr->start_time) < TIMEOUT){continue;} // NOT timed-out --> skip
+	    	if(difftime(curr_time, ptr->start_time) < PKT_LOSS_TIMEOUT){continue;} // NOT timed-out --> skip
 	    	// handle timed-out packet
-	    	p_handler->send(data_packets[ptr->seq_no]->to_string()); // resend packet
+	    	p_handler->send(data_packets.at(ptr->seq_no)->to_string()); // resend packet
 	    	time(&ptr->start_time); // reset timer
 	    }
 	}

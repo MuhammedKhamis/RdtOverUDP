@@ -4,10 +4,12 @@
 /* import libraries */
 /******************************************/
 #include <vector>
+#include <algorithm>    // std::min
 
 #include "selective_repeat.h"
 #include "../../../transport_packet/data_packet.h"
 #include "../../../transport_packet/ack_packet.h"
+
 
 using namespace std;
 

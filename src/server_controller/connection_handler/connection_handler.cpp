@@ -18,16 +18,12 @@ connection_handler::connection_handler(struct sockaddr_in client, string file_pa
     }
 
     p = new port_handler(socket_fd, &this->curr_client, &this->client_len);
-
-    //choose the strategy
-	strategy = new saw_server(p);
 }
 /* interface methods */
 /******************************************/
 void
 connection_handler::handle_client()
 {
-
     //parse datapacket that contain filename.
     data_packet* file_info = packet_parser::create_datapacket(file_packet);
 
@@ -49,18 +45,20 @@ connection_handler::handle_client()
     cout << "hello1 **************************" << endl;
     cout << "data : " << len << endl;
     string data_string(data, len);
-    cout << "hello2 **************************" << endl;
 
     file_packets = packet_manager::disassemble_data(data_string, seq_start);
     // send number of packets as ack packet
 
+
     // 03. implement RDT strategy
+    sr_server *strategy = new sr_server(p);
     strategy->init(file_packets);
 	strategy->implement();
+    cout << "we're out *********************" << endl;
     free(data);
 }
 
 connection_handler::~connection_handler() {
-    delete strategy;
+    //delete strategy;
     delete p;
 }

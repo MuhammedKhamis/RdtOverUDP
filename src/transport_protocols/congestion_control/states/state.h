@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 #include "state.h"
-#include <constants.h>
+#include "../../../utilities/constants.h"
 using namespace std;
 
 /* class definition */

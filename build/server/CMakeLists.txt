@@ -19,8 +19,14 @@ add_executable(
 
         ../../src/transport_protocols/transport_control/rdt_strategy.cpp
         ../../src/transport_protocols/transport_control/rdt_strategy.cpp
+        
         ../../src/transport_protocols/transport_control/stop_and_wait/stop_and_wait.cpp
         ../../src/transport_protocols/transport_control/stop_and_wait/saw_server.cpp
+
+        ../../src/transport_protocols/transport_control/selective_repeat/selective_repeat.cpp
+        ../../src/transport_protocols/transport_control/selective_repeat/sr_server.cpp
+        ../../src/transport_protocols/transport_control/utilities/packet_window.cpp
+
 
         ../../src/utilities/io_handler.cpp
         ../../src/utilities/port_handler.cpp

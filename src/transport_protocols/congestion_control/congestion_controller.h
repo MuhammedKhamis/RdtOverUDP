@@ -5,7 +5,10 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "states/state.h"
+#include "./states/state.h"
+#include "./states/slow_start.h"
+#include "./states/congestion_control.h"
+
 using namespace std;
 
 /* class definition */

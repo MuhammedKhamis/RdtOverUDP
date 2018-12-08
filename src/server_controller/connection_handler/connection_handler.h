@@ -20,6 +20,7 @@
 #include "../../transport_packet/data_packet.h"
 #include "../../utilities/port_handler.h"
 #include "../../transport_protocols/transport_control/stop_and_wait/saw_server.h"
+#include "../../transport_protocols/transport_control/selective_repeat/sr_server.h"
 
 using namespace std;
 
@@ -34,7 +35,6 @@ class connection_handler
 
 private:
 	struct sockaddr_in curr_client;
-	saw_server* strategy;
 	port_handler *p;
 	string file_packet;
 	int socket_fd;
