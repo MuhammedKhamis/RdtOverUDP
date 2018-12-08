@@ -18,14 +18,14 @@ class sr_client : public selective_repeat
 	private:
 		// attributes
 		int expected_packets_count;
-		vector<data_packet> *received_packets;
+		vector<data_packet*> *received_packets;
 
 	public:
 		// constructor
 		sr_client(port_handler *p);
 		
 		//interface methods
-		void init(int expected_packets_count, vector<data_packet> *received_packets);
+		void init(int expected_packets_count, vector<data_packet*> *received_packets);
 		void implement();
 		
 };

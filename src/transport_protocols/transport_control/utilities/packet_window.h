@@ -1,5 +1,5 @@
-#ifndef CIRCULAR_ARRAY_H
-#define CIRCULAR_ARRAY_H
+#ifndef PACKET_WINDOW_H
+#define PACKET_WINDOW_H
 
 /* import libraries */
 /******************************************/
@@ -7,17 +7,10 @@
 #include <time.h>
 using namespace std;
 
-/* data structures */
-/******************************************/
-struct packet_info {
-	int seq_no; // packet seq-no
-	int acked; // boolean 0,1
-	time_t start_time; // start time (timer) for this packet
-};
 
 /* class definition */
 /******************************************/
-class circular_array
+class packet_window
 {
 	private: 
 		// attributes
@@ -25,13 +18,12 @@ class circular_array
 		int start = 0 ;
 		int last = 0 ;
 		int size;
-
 		// utility methods
 
 	public:
 		// constructor
-		circular_array();
-		circular_array(int size);
+		packet_window();
+		packet_window(int size);
 
 		// interface methods
 		int insert(struct packet_info pkt); // insert new packets
@@ -39,6 +31,7 @@ class circular_array
 		void update_array(int) ; // update window size
         vector<packet_info>::iterator begin(); // returns iterator
 		vector<packet_info>::iterator end(); // returns iterator
+        packet_info get_index(int index); // get packet_info at index index
         bool is_full() ;
 };
 

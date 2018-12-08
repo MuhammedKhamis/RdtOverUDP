@@ -1,9 +1,12 @@
 #ifndef SELECTIVE_REPEAT_H
 #define SELECTIVE_REPEAT_H
 
-#include "../rdt_strategy.h"
 /* import libraries */
 /******************************************/
+#include "../rdt_strategy.h"
+#include <zconf.h>
+#include <netinet/in.h>
+
 using namespace std;
 
 /* class definition */

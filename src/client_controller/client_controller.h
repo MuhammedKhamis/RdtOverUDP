@@ -14,6 +14,7 @@
 #include "../utilities/port_handler.h"
 #include "../transport_protocols/transport_control/rdt_strategy.h"
 #include "../transport_protocols/transport_control/stop_and_wait/saw_client.h"
+#include "../transport_protocols/transport_control/selective_repeat/sr_client.h"
 #include "../transport_packet/utilities/packet_manager.h"
 #include "../utilities/io_handler.h"
 
@@ -25,7 +26,6 @@ class client_controller
 {
 	private:
 		// attributes
-		saw_client *strategy;
 		char* store_dir;
 		port_handler *p_handler;
 		int server_port;

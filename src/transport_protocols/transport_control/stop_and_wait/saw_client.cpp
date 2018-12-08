@@ -21,12 +21,9 @@ void saw_client::implement()
 
     while(received_pkt_count < expected_packets_count)
     {
-
-
         string data_string;
         // 01. BLOCKING receive
         p_handler->receive(data_string); // blocking
-
 
         // 02. parse packet
         data_packet *curr_pkt = packet_parser::create_datapacket(data_string);

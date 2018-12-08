@@ -2,11 +2,11 @@
 
 /* constructor */
 /******************************************/
-circular_array::circular_array() {
+packet_window::packet_window() {
 
 }
 
-circular_array::circular_array(int size)
+packet_window::packet_window(int size)
 {
 	this->data_array.resize(size);
 	this->start = 0 ;
@@ -17,7 +17,7 @@ circular_array::circular_array(int size)
 /* interface methods */
 /******************************************/
 int
-circular_array::insert(struct packet_info pkt)
+packet_window::insert(struct packet_info pkt)
 {
 	if(is_full() == 1){
 		return -1 ;
@@ -32,7 +32,7 @@ circular_array::insert(struct packet_info pkt)
 }
 
 int
-circular_array::mark_acked(int seq_no)
+packet_window::mark_acked(int seq_no)
 {
 	int index = seq_no % data_array.size() ;
 	int total_ack = 1 ;
@@ -54,22 +54,22 @@ circular_array::mark_acked(int seq_no)
 }
 
 bool
-circular_array::is_full()
+packet_window::is_full()
 {
 	this->size == data_array.size() ;
 }
 
 vector<packet_info>::iterator
-circular_array::begin(){
+packet_window::begin(){
 	return data_array.begin() ;
 }
 
 vector<packet_info>::iterator
-circular_array::end() {
+packet_window::end() {
 	return data_array.end();
 }
 
-void circular_array::update_array(int size){
+void packet_window::update_array(int size){
 	vector<packet_info> db_array(size) ;
 	int i = start , j = start , siz = 0 ;
 

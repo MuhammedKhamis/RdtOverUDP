@@ -55,12 +55,15 @@ client_controller::get_remote_file(string file_name) {
 
 	// 02. implement strategy
     vector<data_packet*> received_packets;
-    strategy = new saw_client(p_handler); // ------> implement
+    sr_client *strategy = new sr_client(p_handler); // ------> implement
     strategy->init(expected_packets_count, &received_packets);
     strategy->implement();
     // sort packets ------------------------------------------->> implement
 
 	// 03. save file to disk
+    // packet_manager::assemble_data sorts packets
+    // this is why client doesn't need 
+    // client uses buffered read NOT steamed read
     string file = packet_manager::assemble_data(received_packets);
 
     io_handler::writeData(file_name, (char*) file.data(), file.size());

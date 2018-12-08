@@ -1,8 +1,5 @@
 /* import libraries */
 /******************************************/
-#include <zconf.h>
-#include <netinet/in.h>
-#include <transport_control/rdt_strategy.h>
 #include "selective_repeat.h"
 
 /* constructor */
