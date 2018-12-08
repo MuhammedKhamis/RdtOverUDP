@@ -39,6 +39,7 @@ class circular_array
 		void update_array(int) ; // update window size
         vector<packet_info>::iterator begin(); // returns iterator
 		vector<packet_info>::iterator end(); // returns iterator
+        packet_info get_index(int index); // get packet_info at index index
         bool is_full() ;
 };
 

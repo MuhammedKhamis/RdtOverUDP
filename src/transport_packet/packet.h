@@ -23,7 +23,7 @@ protected:
     uint16_t length;
     uint32_t seq_no;
     string stringfy_header();
-    virtual void calc_checksum() = 0;
+    virtual void calc_checksum() = 0 ;
 
   public:
     // constructor

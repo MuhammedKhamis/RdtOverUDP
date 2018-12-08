@@ -12,7 +12,6 @@ ack_packet::ack_packet(uint32_t ackno, uint16_t len, uint16_t checksum)
 
 }
 
-
 void ack_packet::calc_checksum() {
     //TODO
 }
