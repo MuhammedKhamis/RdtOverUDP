@@ -1,7 +1,7 @@
 /* import libraries */
 /*************************************/
 #include <bits/stdc++.h>
-#include "../../server_controller/server_controller.h"
+#include "./server_controller/server_controller.h"
 using namespace std;
 
 /* main function */
@@ -9,7 +9,7 @@ using namespace std;
 int
 main(int argc, char const *argv[]) 
 {
-    chdir("../../../data/server/");
+    chdir("../../data/server/");
     server_controller sc(8000);
     if(sc.init_server()){
         sc.run_server();

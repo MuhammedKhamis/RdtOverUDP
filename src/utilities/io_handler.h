@@ -7,6 +7,7 @@
 #include <iostream> // read write screen
 #include <vector>
 #include <string>
+#include <sys/stat.h>
 using namespace std;
 
 /* class definition */

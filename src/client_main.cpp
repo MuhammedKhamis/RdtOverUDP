@@ -2,7 +2,7 @@
 /*************************************/
 
 #include <bits/stdc++.h>
-#include <client_controller.h>
+#include "./client_controller/client_controller.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ using namespace std;
 int
 main(int argc, char const *argv[]) 
 {
-    chdir("../../../data/client/");
+    chdir("../../data/client/");
 
     // some attributes
 	char file_dir[] = "smile.jpeg";

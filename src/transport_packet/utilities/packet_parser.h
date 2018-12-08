@@ -5,10 +5,16 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "../transport_packet/packet.h"
 #include <cstring>
-#include <data_packet.h>
-#include <ack_packet.h>
+#include <stdexcept>
+
+#include "../packet.h"
+#include "../data_packet.h"
+#include "../ack_packet.h"
+#include "../../utilities/constants.h"
+
+
+
 
 using namespace std;
 

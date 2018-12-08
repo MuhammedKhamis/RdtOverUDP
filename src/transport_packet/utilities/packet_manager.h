@@ -5,8 +5,16 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "../transport_packet/packet.h"
-#include "../transport_packet/data_packet.h"
+#include "../packet.h"
+#include "../data_packet.h"
+#include "../ack_packet.h"
+#include "packet_parser.h"
+#include "../../utilities/constants.h"
+
+#include <sstream>
+#include <bitset>
+
+
 using namespace std;
 
 /* class definition */

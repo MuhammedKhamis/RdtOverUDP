@@ -1,6 +1,4 @@
 #include "client_controller.h"
-#include "../transport_packet/utilities/packet_manager.h"
-#include "../utilities/io_handler.h"
 
 /* constructor */
 /******************************************/
@@ -9,7 +7,7 @@ client_controller::client_controller(int server_port)
 
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
-    file_dir = string(cwd) + "/data/client/";
+    file_dir = string(cwd);
 }
 
 /* init client UDP connection */

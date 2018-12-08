@@ -14,6 +14,8 @@
 #include "../utilities/port_handler.h"
 #include "../transport_protocols/transport_control/rdt_strategy.h"
 #include "../transport_protocols/transport_control/stop_and_wait/saw_client.h"
+#include "../transport_packet/utilities/packet_manager.h"
+#include "../utilities/io_handler.h"
 
 using namespace std;
 

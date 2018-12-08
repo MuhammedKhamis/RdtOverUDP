@@ -1,5 +1,4 @@
 #include "io_handler.h"
-#include <sys/stat.h>
 
 /* interface functions */
 /******************************************/

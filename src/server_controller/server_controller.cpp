@@ -1,4 +1,3 @@
-#include <connection_handler/connection_handler.h>
 #include "server_controller.h"
 
 server_controller::server_controller(int port) : port_no(port) {
@@ -10,7 +9,7 @@ bool server_controller::init_server() {
     struct sockaddr_in servaddr;
 
     // Creating socket file descriptor
-    if ( (socket_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
+    if ( (socket_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ){
         perror("socket creation failed");
         exit(EXIT_FAILURE);
     }
