@@ -15,7 +15,6 @@ class data_packet : public packet
   private:
     // attributes
     string data;
-    void calc_checksum();
   public:
     // constuctor for sending data packets
     data_packet(uint32_t seq_no, string data);
@@ -28,6 +27,7 @@ class data_packet : public packet
 
     string to_string();
 
+    uint16_t calc_checksum();
 };
 
 #endif 

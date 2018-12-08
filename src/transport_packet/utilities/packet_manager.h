@@ -22,8 +22,6 @@ class packet_manager
 	private:
 		// prevent instance
 		packet_manager() = default;
-        // get check sum of data
-		static uint16_t get_check_sum(string) ;
         // comprator to sort packet in order
 		static bool comp(data_packet *p1, data_packet *p2);
 

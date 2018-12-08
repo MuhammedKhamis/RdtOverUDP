@@ -142,8 +142,6 @@ BOOST_AUTO_TEST_SUITE(suite1, * utf::label("circular-array-tests"))
     BOOST_REQUIRE(array.get_index(8).seq_no == 8) ;
     BOOST_REQUIRE(array.get_index(7).seq_no == 7) ;
     BOOST_REQUIRE(array.get_index(6).seq_no == 6) ;
-
 }
-
 
 BOOST_AUTO_TEST_SUITE_END()

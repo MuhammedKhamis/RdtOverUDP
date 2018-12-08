@@ -34,4 +34,5 @@ add_executable(
         ../../src/transport_protocols/transport_control/utilities/packet_window.cpp
         utilities_tests.cpp
         test.cpp
+        ../../src/transport_packet/
         ${SRC_FILES})

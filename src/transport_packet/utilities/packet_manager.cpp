@@ -41,23 +41,3 @@ vector<data_packet*> packet_manager::disassemble_data(string data, uint32_t seq_
 }
 
 
-uint16_t  packet_manager::get_check_sum(string chunk) {
-
-  // divide each chunk to 16-bit pieces (two character)
-  vector<string> to_sum = packet_parser::divide_data_size(chunk, 2) ;
-
-  // sum all 16-bit words
-  bitset<16> checksum(0) ;
-  for( string s : to_sum ) {
-    bitset<16> str_bits(s) ;
-    checksum = bitset<16>(checksum.to_ulong() + str_bits.to_ulong()) ;
-  }
-
-  // obtain 1's compliment of check sum
-  for (int i = 0 ; i < checksum.size() ; i++) {
-    checksum[i] = checksum[i] ^ 1 ;
-  }
-
-  return checksum.to_ullong();
-}
-

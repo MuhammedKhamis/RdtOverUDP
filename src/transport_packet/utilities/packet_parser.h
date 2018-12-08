@@ -23,13 +23,13 @@ class packet_parser
 		static pair<string,string> seperate_headers_data(string);
 		static int get_packet_length(string data);
 		static vector<string> divide_data_size(string data, int size);
+		static vector<string> tokenize(string s, string delimiter);
 
 	private:
 		// prevent instance
 		packet_parser();
 		// utility methods
 		static int get_line_data(stringstream *s, string header);
-		static vector<string> tokenize(string s, string delimiter);
 		static uint32_t get_token_value(string line);
 		static tuple<uint16_t ,uint16_t, uint32_t> get_header_info(vector<string> &tokens);
 
