@@ -11,8 +11,8 @@
 #include "../../transport_control/utilities/packet_window.h"
 
 using namespace std;
-#define PKT_LOSS_TIMEOUT 1000 // in seconds
-#define INIT_WIN_LEN 5
+#define PKT_LOSS_TIMEOUT 1 // in seconds
+#define INIT_WIN_LEN 20
 
 /* class definition */
 /******************************************/
@@ -26,6 +26,7 @@ private:
     pthread_t time_handler_id, send_id, recv_id;
     pthread_cond_t cond_id;
     pthread_mutex_t lock;
+    pthread_mutex_t print_lock;
 
     // utility methods
     void send_packet(int index);

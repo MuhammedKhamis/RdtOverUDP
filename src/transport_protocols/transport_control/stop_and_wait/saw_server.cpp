@@ -27,8 +27,6 @@ void saw_server::implement()
             // 01. send packet
             string send_data =  curr_pkt->to_string();
 
-            cout << send_data << endl;
-
             p_handler->send(send_data);
             // 02. simulate packet loss
                 // loss_simulator.simulate();

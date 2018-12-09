@@ -34,6 +34,9 @@ void sr_client::implement()
         ack_packet ack(pkt_seq_no);
         p_handler->send(ack.to_string());
 
+        cout << "at implement sr_client: " << pkt_seq_no << ", remaining: ";
+        cout << expected_packets_count - received_pkt_count - 1 << endl;
+
         // 03. add packet to list
         int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
         if(exists == 1){continue;} // packet already received
@@ -42,6 +45,8 @@ void sr_client::implement()
         received_seq_no.insert(pkt_seq_no);
 
         received_pkt_count++;
+        usleep(1000);
     }
+    cout << "End of implement\n";
 
 }
