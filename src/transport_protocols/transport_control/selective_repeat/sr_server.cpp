@@ -2,7 +2,10 @@
 
 /* constructor */
 /******************************************/
-sr_server::sr_server(port_handler *p) : selective_repeat(p) {}
+sr_server::sr_server(port_handler *p) : selective_repeat(p) {
+    pthread_mutex_init(&lock, NULL);
+    pthread_cond_init(&cond_id, NULL);
+}
 
 /* interface method */
 /******************************************/
@@ -19,52 +22,12 @@ void sr_server::init(vector<data_packet*> &data_packets) {
 void
 sr_server::implement()
 {
-    int sent_pkts_counter = 0; // how many packets are sent
-    int ack_pkts_counter = 0; // how many packets are acked
-
-    // 01. send initial N packets
-    while(sent_pkts_counter < INIT_WIN_LEN)
-    {
-        send_packet(sent_pkts_counter);
-
-        sent_pkts_counter++;
-        if(sent_pkts_counter >= data_packets.size())
-        {
-            implementation_done_flag = 1; // to exit timer thread
-            return;
-        }
-    }
-
-    // 02. run Timer thread
     pthread_create(&time_handler_id, NULL, run_timer_thread, this);
-
-    // 03. wait for acknowledgements
-    while(ack_pkts_counter < data_packets.size())
-    {
-        // wait for ack
-        string buffer;
-        p_handler->receive(buffer); // blocked receive
-        ack_packet *packet = packet_parser::create_ackpacket(buffer);
-
-        // update window
-        int remaining_window = p_window.mark_acked(packet->get_seqno());
-        // send new open space
-        while(remaining_window > 0)
-        {
-            send_packet(sent_pkts_counter);
-            remaining_window--;
-            sent_pkts_counter++;
-            if(sent_pkts_counter >= data_packets.size())
-            {
-                implementation_done_flag = 1; // to exit timer thread
-                return;
-            }
-        }
-    }
-
-    // 04. implementation done
-    implementation_done_flag = 1; // to exit timer thread
-
+    pthread_create(&send_id, NULL, run_sender_thread, this);
+    pthread_create(&recv_id, NULL, run_receiver_thread, this);
+    pthread_join(recv_id, NULL);
+    pthread_join(send_id, NULL);
+    pthread_join(time_handler_id, NULL);
 }
 
 
@@ -93,6 +56,7 @@ void*
 sr_server::run_timer_thread(void *tmp)
 {
     ((sr_server*) tmp)->timer_handler();
+    pthread_exit(NULL);
 }
 
 void
@@ -112,4 +76,43 @@ sr_server::timer_handler()
             time(&ptr->start_time); // reset timer
         }
     }
+}
+
+void* sr_server::run_sender_thread(void *tmp) {
+    ((sr_server*) tmp)->send_handler();
+    pthread_exit(NULL);
+}
+
+void sr_server::send_handler() {
+    int sent_pkts_counter = 0;
+    while (sent_pkts_counter < data_packets.size()){
+        while (p_window.is_full()){
+            pthread_cond_wait(&cond_id, &lock);
+        }
+        send_packet(sent_pkts_counter);
+        sent_pkts_counter++;
+    }
+}
+
+void* sr_server::run_receiver_thread(void *tmp) {
+    ((sr_server*) tmp)->recv_handler();
+    pthread_exit(NULL);
+}
+
+void sr_server::recv_handler() {
+    int ack_pkts_counter = 0;
+    while (ack_pkts_counter < data_packets.size()){
+        string buffer;
+        p_handler->receive(buffer);
+        ack_packet *packet = packet_parser::create_ackpacket(buffer);
+
+        // update window
+        int remaining_window = p_window.mark_acked(packet->get_seqno());
+        if(!p_window.is_full()){
+            pthread_cond_signal(&cond_id);
+        }
+        ack_pkts_counter++;
+        delete packet;
+    }
+    implementation_done_flag = 1;
 }

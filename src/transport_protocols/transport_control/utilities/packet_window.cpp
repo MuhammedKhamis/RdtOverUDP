@@ -3,11 +3,9 @@
 /* constructor */
 /******************************************/
 packet_window::packet_window() {
-
 }
 
-packet_window::packet_window(int size)
-{
+packet_window::packet_window(int size) : packet_window() {
 	this->data_array.resize(size);
 	this->start = 0 ;
 	this->last = 0 ;
@@ -19,21 +17,25 @@ packet_window::packet_window(int size)
 int
 packet_window::insert(struct packet_info pkt)
 {
+	int ret_val;
+
 	if(is_full() == 1){
-		return -1 ;
+		ret_val =  -1 ;
+	}else{
+		data_array[last] = pkt;
+
+		last++ ;
+		size++ ;
+		last %= data_array.size() ;
+		ret_val = 1;
 	}
-	data_array[last] = pkt;
-
-	last++ ;
-	size++ ;
-	last %= data_array.size() ;
-
-	return 1;
+	return ret_val;
 }
 
 int
 packet_window::mark_acked(int seq_no)
 {
+
 	int index = seq_no % data_array.size() ;
 	int total_ack = 1 ;
 
@@ -50,13 +52,14 @@ packet_window::mark_acked(int seq_no)
 
 	size -= total_ack ;
 
+
 	return total_ack ;
 }
 
 bool
 packet_window::is_full()
 {
-	this->size == data_array.size() ;
+	return this->size == data_array.size() ;
 }
 
 vector<packet_info>::iterator
@@ -70,6 +73,8 @@ packet_window::end() {
 }
 
 void packet_window::update_array(int size){
+
+
 	vector<packet_info> db_array(size) ;
 	int i = start , j = start , siz = 0 ;
 
@@ -83,4 +88,5 @@ void packet_window::update_array(int size){
 	}
 
 	data_array = db_array ;
+
 }

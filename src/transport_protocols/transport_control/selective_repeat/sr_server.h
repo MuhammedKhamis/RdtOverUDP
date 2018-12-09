@@ -12,7 +12,7 @@
 
 using namespace std;
 #define PKT_LOSS_TIMEOUT 1000 // in seconds
-#define INIT_WIN_LEN 1000
+#define INIT_WIN_LEN 5
 
 /* class definition */
 /******************************************/
@@ -23,12 +23,19 @@ private:
     vector<data_packet*> data_packets;
     packet_window p_window;
     int implementation_done_flag = 0; // used to kick
-    pthread_t time_handler_id;
+    pthread_t time_handler_id, send_id, recv_id;
+    pthread_cond_t cond_id;
+    pthread_mutex_t lock;
 
     // utility methods
     void send_packet(int index);
     static void* run_timer_thread(void *tmp);
+    static void* run_sender_thread(void *tmp);
+    static void* run_receiver_thread(void *tmp);
+
     void timer_handler();
+    void send_handler();
+    void recv_handler();
 
 public:
     // constructor
