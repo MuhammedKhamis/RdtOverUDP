@@ -22,6 +22,8 @@ class port_handler{
         int socked_fd;
         struct sockaddr_in *else_addr;
         socklen_t *else_len;
+        pthread_mutex_t lock;
+
     public:
 
         port_handler();

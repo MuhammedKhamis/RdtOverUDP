@@ -29,6 +29,7 @@ private:
 	int last = 0 ;
 	int size;
 	// utility methods
+	pthread_mutex_t lock;
 
 public:
 	// constructor

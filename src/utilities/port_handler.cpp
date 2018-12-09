@@ -4,11 +4,11 @@
 
 #include "port_handler.h"
 
-port_handler::port_handler() {}
+port_handler::port_handler() {
+}
 
 port_handler::port_handler(int &socked_fd, struct sockaddr_in *else_addr, socklen_t *else_len)
-        :socked_fd(socked_fd), else_addr(else_addr), else_len(else_len){
-
+        : socked_fd(socked_fd), else_addr(else_addr), else_len(else_len){
 }
 
 void port_handler::send(string data) {
@@ -49,6 +49,7 @@ int port_handler::receive(string &buffer) {
     int len = packet_parser::get_packet_length(pkt);
     int n  = readExact(buf, len);
     buffer = string(buf, n);
+
     return n;
 }
 

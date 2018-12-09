@@ -3,6 +3,7 @@
 /* constructor */
 /******************************************/
 packet_window::packet_window() {
+    pthread_mutex_init(&lock, NULL);
 }
 
 packet_window::packet_window(int size) : packet_window() {
@@ -59,7 +60,10 @@ packet_window::mark_acked(int seq_no)
 bool
 packet_window::is_full()
 {
-	return this->size == data_array.size() ;
+    pthread_mutex_lock(&lock);
+    bool ret = this->size == data_array.size();
+    pthread_mutex_unlock(&lock);
+	return ret ;
 }
 
 vector<packet_info>::iterator

@@ -12,7 +12,7 @@
 
 using namespace std;
 #define PKT_LOSS_TIMEOUT 1 // in seconds
-#define INIT_WIN_LEN 20
+#define INIT_WIN_LEN 3000
 
 /* class definition */
 /******************************************/
