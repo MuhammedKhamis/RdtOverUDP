@@ -27,7 +27,6 @@ class connection_handler
 
 private:
 	struct sockaddr_in curr_client;
-	saw_server* strategy;
 	port_handler *p;
 	string file_packet;
 	int socket_fd;

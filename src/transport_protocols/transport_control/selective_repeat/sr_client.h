@@ -15,19 +15,19 @@ using namespace std;
 /******************************************/
 class sr_client : public selective_repeat
 {
-	private:
-		// attributes
-		int expected_packets_count;
-		vector<data_packet> *received_packets;
+private:
+	// attributes
+	int expected_packets_count;
+	vector<data_packet*> *received_packets;
 
-	public:
-		// constructor
-		sr_client(port_handler *p);
-		
-		//interface methods
-		void init(int expected_packets_count, vector<data_packet> *received_packets);
-		void implement();
-		
+public:
+	// constructor
+	sr_client(port_handler *p);
+
+	//interface methods
+	void init(int expected_packets_count, vector<data_packet*> *received_packets);
+	void implement();
+
 };
 
-#endif 
+#endif

@@ -1,6 +1,4 @@
 #include "data_packet.h"
-#include "utilities/packet_parser.h"
-#include "utilities/checksum_calculator.h"
 /* constructor */
 /******************************************/
 
@@ -18,6 +16,7 @@ data_packet::data_packet(uint32_t seq_no, uint16_t len, uint16_t checksum, strin
 
 
 uint16_t data_packet::calc_checksum() {
+    /*
     string whole_package = this->to_string() ;
     vector<string> tokens = packet_parser::tokenize(whole_package, "\r\n" ) ;
     reverse(tokens.begin(),tokens.end()) ;
@@ -30,6 +29,8 @@ uint16_t data_packet::calc_checksum() {
     }
 
     return checksum_calculator::get_checksum(with_out_checksum) ;
+    */
+    return 0;
 }
 
 data_packet::~data_packet() {

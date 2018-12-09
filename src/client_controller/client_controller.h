@@ -23,7 +23,6 @@ class client_controller
 {
 	private:
 		// attributes
-		saw_client *strategy;
 		char* store_dir;
 		port_handler *p_handler;
 		int server_port;

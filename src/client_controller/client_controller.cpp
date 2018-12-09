@@ -1,3 +1,4 @@
+#include <transport_control/selective_repeat/sr_client.h>
 #include "client_controller.h"
 #include "../transport_packet/utilities/packet_manager.h"
 #include "../utilities/io_handler.h"
@@ -9,7 +10,7 @@ client_controller::client_controller(int server_port)
 
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
-    file_dir = string(cwd) + "/data/client/";
+    file_dir = string(cwd);
 }
 
 /* init client UDP connection */
@@ -57,7 +58,7 @@ client_controller::get_remote_file(string file_name) {
 
 	// 02. implement strategy
     vector<data_packet*> received_packets;
-    strategy = new saw_client(p_handler); // ------> implement
+    sr_client *strategy = new sr_client(p_handler); // ------> implement
     strategy->init(expected_packets_count, &received_packets);
     strategy->implement();
     // sort packets ------------------------------------------->> implement

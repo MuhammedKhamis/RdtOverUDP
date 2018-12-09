@@ -5,12 +5,16 @@
 /******************************************/
 #include <vector>
 #include <string>
-#include "../transport_packet/packet.h"
 #include <cstring>
-#include <data_packet.h>
-#include <ack_packet.h>
+
+#include "../data_packet.h"
+#include "../ack_packet.h"
+#include "../packet.h"
 
 using namespace std;
+
+class data_packet; // forward declaration
+class ack_packet;
 
 /* class definition */
 /******************************************/

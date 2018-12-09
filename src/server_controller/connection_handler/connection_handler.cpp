@@ -3,6 +3,7 @@
 #include "../../transport_packet/utilities/packet_manager.h"
 #include <data_packet.h>
 #include <port_handler.h>
+#include <transport_control/selective_repeat/sr_server.h>
 #include "connection_handler.h"
 #include "../../transport_protocols/transport_control/stop_and_wait/saw_server.h"
 
@@ -15,7 +16,7 @@ connection_handler::connection_handler(struct sockaddr_in client, string file_pa
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
 
-    file_dir = string(cwd) + "/data/server/";
+    file_dir = string(cwd);
 
     // Creating socket file descriptor
     if ((socket_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
@@ -26,7 +27,6 @@ connection_handler::connection_handler(struct sockaddr_in client, string file_pa
     p = new port_handler(socket_fd, &this->curr_client, &this->client_len);
 
     //choose the strategy
-	strategy = new saw_server(p);
 }
 /* interface methods */
 /******************************************/
@@ -58,12 +58,13 @@ connection_handler::handle_client()
     // send number of packets as ack packet
 
     // 03. implement RDT strategy
+    sr_server *strategy = new sr_server(p);
     strategy->init(file_packets);
 	strategy->implement();
     free(data);
+    delete strategy;
 }
 
 connection_handler::~connection_handler() {
-    delete strategy;
     delete p;
 }
