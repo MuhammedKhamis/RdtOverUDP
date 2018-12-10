@@ -12,7 +12,14 @@
 
 using namespace std;
 #define PKT_LOSS_TIMEOUT 1 // in seconds
-#define INIT_WIN_LEN 3000
+#define INIT_WIN_LEN 30
+
+struct pkt_in{
+    pkt_in() : status(NOT_SEND) {}
+    PKT_STATUS status;
+    time_t start_time;
+};
+
 
 /* class definition */
 /******************************************/
@@ -21,6 +28,7 @@ class sr_server : public selective_repeat
 private:
     // attributes
     vector<data_packet*> data_packets;
+    vector<struct pkt_in> pkts_status;
     packet_window p_window;
     int implementation_done_flag = 0; // used to kick
     pthread_t time_handler_id, send_id, recv_id;
