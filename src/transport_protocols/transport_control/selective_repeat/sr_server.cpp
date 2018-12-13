@@ -1,10 +1,10 @@
+#include <congestion_control/congestion_controller.h>
+#include "../../../utilities/random_generator.h"
 #include "sr_server.h"
 
 /* constructor */
 /******************************************/
 sr_server::sr_server(port_handler *p) : selective_repeat(p) {
-    pthread_mutex_init(&lock, NULL);
-    pthread_cond_init(&cond_id, NULL);
     pthread_mutex_init(&print_lock, NULL);
 }
 
@@ -17,6 +17,10 @@ void sr_server::init(vector<data_packet*> &data_packets) {
     ack_packet ak(data_packets.size());
     p_handler->send(ak.to_string());
     pkts_status.resize(data_packets.size());
+
+    // setting the random generator for packet loss.
+    rg = random_generator(0.1, 5, data_packets.size());
+
     cout << "data length: " << data_packets.size() << endl;
 }
 
@@ -40,50 +44,20 @@ sr_server::implement()
 void
 sr_server::send_packet(int seq_no)
 {
+
     // get packet by seq_no
-    data_packet *curr_pkt = data_packets.at(seq_no);
+    data_packet *curr_pkt = data_packets[seq_no];
 
     // send packet to client
+    pkts_status[seq_no].status = SENT;
     time(&(pkts_status[seq_no].start_time));
-    p_handler->send(curr_pkt->to_string());
 
-    /*
-    // create new entry
-    struct packet_info tmp;
-    tmp.seq_no = curr_pkt->get_seqno();
-    tmp.acked = 0;
-    time(&tmp.start_time);
-    // insert into window
-    p_window.insert(tmp);
-    */
-}
-
-
-/* TIMER methods */
-/******************************************/
-void*
-sr_server::run_timer_thread(void *tmp)
-{
-    ((sr_server*) tmp)->timer_handler();
-    pthread_exit(NULL);
-}
-
-void
-sr_server::timer_handler()
-{
-    time_t curr_time;
-    while(implementation_done_flag == 0)
-    {
-        vector<struct packet_info>::iterator ptr;
-        for (ptr = p_window.begin(); ptr < p_window.end(); ptr++)
-        {
-            if(ptr->acked == 1){continue;} // acked pkt -> skip
-            time(&curr_time); // get system current time
-            if(difftime(curr_time, ptr->start_time) < PKT_LOSS_TIMEOUT){continue;} // NOT timed-out --> skip
-            // handle timed-out packet
-            p_handler->send(data_packets.at(ptr->seq_no)->to_string()); // resend packet
-            time(&ptr->start_time); // reset timer
-        }
+    if(rg.can_send(seq_no)) {
+        // will send if it's defined as loss.
+        p_handler->send(curr_pkt->to_string());
+        cout << "Packet with seqno = " << seq_no << " will be sent.\n";
+    }else{
+        cout << "Packet with seqno = " << seq_no << " will be lost.\n";
     }
 }
 
@@ -96,11 +70,15 @@ void sr_server::send_handler() {
     int base = 0;
     int number_pkts = data_packets.size();
     time_t curr_time;
+    int window_size = 1;
+    congestion_controller cg;
 
     while (base < number_pkts){
 
         //loop the size of the window, or the remaining of not send packets
-        int remaining = min(number_pkts-base, INIT_WIN_LEN);
+        int remaining = min(number_pkts-base, window_size);
+
+        int new_window_size = window_size;
 
         for(int i = base; ((i-base) < remaining); i++){
 
@@ -117,15 +95,18 @@ void sr_server::send_handler() {
             //resending pkt in case of timeout
             time(&curr_time);
             if(difftime(curr_time, pkts_status[i].start_time) > PKT_LOSS_TIMEOUT){
+                //PKT loss
                 send_packet(i);
+                new_window_size = cg.update_window_size(TIMEOUT);
                 continue;
             }
         }
 
         while (pkts_status[base].status == ACKED && base < number_pkts){
+            new_window_size = cg.update_window_size(ACK);
             base++;
         }
-
+        window_size = new_window_size;
     }
 }
 

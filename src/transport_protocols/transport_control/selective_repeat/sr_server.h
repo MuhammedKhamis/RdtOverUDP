@@ -9,6 +9,8 @@
 #include "selective_repeat.h"
 #include "../../../transport_packet/data_packet.h"
 #include "../../transport_control/utilities/packet_window.h"
+#include "../../../utilities/random_generator.h"
+
 
 using namespace std;
 #define PKT_LOSS_TIMEOUT 1 // in seconds
@@ -31,18 +33,15 @@ private:
     vector<struct pkt_in> pkts_status;
     packet_window p_window;
     int implementation_done_flag = 0; // used to kick
-    pthread_t time_handler_id, send_id, recv_id;
-    pthread_cond_t cond_id;
-    pthread_mutex_t lock;
+    pthread_t send_id, recv_id;
     pthread_mutex_t print_lock;
+    random_generator rg;
 
     // utility methods
     void send_packet(int index);
-    static void* run_timer_thread(void *tmp);
     static void* run_sender_thread(void *tmp);
     static void* run_receiver_thread(void *tmp);
 
-    void timer_handler();
     void send_handler();
     void recv_handler();
 

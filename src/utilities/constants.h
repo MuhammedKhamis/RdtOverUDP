@@ -15,7 +15,7 @@
 /* event types for congestion control */
 enum EVENT_TYPE {ACK, TIMEOUT};
 
-enum PKT_STATUS {ACKED, NOT_SEND};
+enum PKT_STATUS {ACKED, NOT_SEND, SENT};
 
 #define MSS 512
 #define INITIAL_THRESHOLD 64 * MSS

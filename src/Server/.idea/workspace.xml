@@ -12,10 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5d24090-9d48-48bd-bc52-3dd784d25c7b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../data/client/c.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../utilities/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/constants.h" afterDir="false" />
@@ -42,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
+            <state relative-caret-position="770">
               <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
             </state>
           </provider>
@@ -51,8 +49,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-71">
-              <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+            <state relative-caret-position="66">
+              <caret line="57" column="66" selection-start-line="57" selection-start-column="66" selection-end-line="57" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="18106">
               <caret line="823" selection-start-line="823" selection-end-line="823" />
             </state>
           </provider>
@@ -99,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
-              <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+            <state relative-caret-position="-240">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#109#126#0" expanded="true" />
               </folding>
@@ -135,6 +136,7 @@
       <find>send</find>
       <find>recv</find>
       <find>recv_handler</find>
+      <find>Packet</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,8 +193,8 @@
         <option value="$PROJECT_DIR$/../main/server/server-main.cpp" />
         <option value="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" />
         <option value="$PROJECT_DIR$/../utilities/port_handler.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" />
         <option value="$PROJECT_DIR$/../utilities/constants.h" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
       </list>
     </option>
@@ -226,17 +228,6 @@
               <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
-            <path>
-              <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-              <item name="utilities" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -245,7 +236,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -310,12 +301,14 @@
       <workItem from="1544180860198" duration="29051000" />
       <workItem from="1544361271620" duration="10676000" />
       <workItem from="1544387130831" duration="1977000" />
-      <workItem from="1544439958463" duration="3517000" />
+      <workItem from="1544439958463" duration="4628000" />
+      <workItem from="1544637696986" duration="7000" />
+      <workItem from="1544720888350" duration="735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86757000" />
+    <option name="totallyTimeSpent" value="88610000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -327,22 +320,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29408512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30071864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.338558" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32706374" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.338558" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32638165" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3291536" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3291536" />
@@ -706,6 +699,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18106">
+          <caret line="823" selection-start-line="823" selection-end-line="823" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../utilities/constants.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../main/server/server-main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -730,38 +751,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="823" selection-start-line="823" selection-end-line="823" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../utilities/constants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+        <state relative-caret-position="-240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#109#126#0" expanded="true" />
           </folding>
@@ -770,8 +763,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+        <state relative-caret-position="66">
+          <caret line="57" column="66" selection-start-line="57" selection-start-column="66" selection-end-line="57" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
