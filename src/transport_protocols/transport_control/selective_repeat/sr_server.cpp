@@ -128,16 +128,20 @@ void sr_server::recv_handler() {
 
         // update window
         uint32_t pkt_seq_no = packet->get_seqno();
+        ack_packet ack(pkt_seq_no);
+
+        if(checksum_calculator::validate(packet->get_checksum(), ack.get_checksum())){
+            delete packet;
+
+            int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
+            if(exists == 1){continue;} // packet already received
+
+            pkts_status[pkt_seq_no].status = ACKED;
+            received_seq_no.insert(pkt_seq_no);
+
+            ack_pkts_counter++;
+
+        }
         delete packet;
-
-
-        int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
-        if(exists == 1){continue;} // packet already received
-
-        pkts_status[pkt_seq_no].status = ACKED;
-        received_seq_no.insert(pkt_seq_no);
-
-        ack_pkts_counter++;
-
     }
 }

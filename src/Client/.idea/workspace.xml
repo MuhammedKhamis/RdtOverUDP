@@ -12,32 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33c08028-c7be-4a4b-9b43-2a7891a9791b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client_controller/client_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client_controller/client_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main/client/client-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/client/client-main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main/server/server-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/server/server-main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="421">
+              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -205,9 +182,9 @@
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" />
         <option value="$PROJECT_DIR$/../main/client/client-main.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
         <option value="$PROJECT_DIR$/../client_controller/client_controller.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" />
       </list>
     </option>
   </component>
@@ -293,18 +270,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62183000" />
+    <option name="totallyTimeSpent" value="62578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27418464" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27418464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.3291536" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -750,8 +727,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="421">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
         </state>
       </provider>
     </entry>

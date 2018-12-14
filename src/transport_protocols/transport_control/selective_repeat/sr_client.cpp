@@ -32,17 +32,21 @@ void sr_client::implement()
 
         // 03. send ACK
         ack_packet ack(pkt_seq_no);
-        p_handler->send(ack.to_string());
 
-        // 03. add packet to list
-        int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
-        if(exists == 1){continue;} // packet already received
+        if(checksum_calculator::validate(curr_pkt->get_checksum(), ack.get_checksum())){
 
-        // this is a new packet
-        received_packets->push_back(curr_pkt);
-        received_seq_no.insert(pkt_seq_no);
+            p_handler->send(ack.to_string());
 
-        received_pkt_count++;
+            // 03. add packet to list
+            int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
+            if(exists == 1){continue;} // packet already received
+
+            // this is a new packet
+            received_packets->push_back(curr_pkt);
+            received_seq_no.insert(pkt_seq_no);
+            received_pkt_count++;
+
+        }
     }
 
     cout << "End of implement\n";
