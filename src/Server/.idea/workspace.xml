@@ -13,17 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e5d24090-9d48-48bd-bc52-3dd784d25c7b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main/client/client-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/client/client-main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main/server/server-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/server/server-main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../utilities/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/constants.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -45,23 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="352">
+              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-              <folding>
-                <element signature="e#115#153#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="418">
+              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -69,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            <state relative-caret-position="176">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -108,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="166">
@@ -179,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../utilities/packet_manager.h" />
         <option value="$PROJECT_DIR$/connection_handler/connection_handler.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat.h" />
@@ -226,10 +217,11 @@
         <option value="$PROJECT_DIR$/../main/server/server-main.cpp" />
         <option value="$PROJECT_DIR$/../server_controller/server_controller.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" />
         <option value="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
         <option value="$PROJECT_DIR$/../utilities/constants.h" />
+        <option value="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" />
       </list>
     </option>
   </component>
@@ -256,6 +248,11 @@
             <path>
               <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -337,7 +334,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104032000" />
+    <option name="totallyTimeSpent" value="106928000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -350,21 +347,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30403537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30403537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42737722" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42737722" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.338558" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3260188" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3260188" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3291536" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3291536" />
@@ -699,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-506">
@@ -757,24 +746,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="53" column="71" lean-forward="true" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -792,13 +767,6 @@
           <folding>
             <element signature="e#133#150#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../utilities/constants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -826,6 +794,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../utilities/constants.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

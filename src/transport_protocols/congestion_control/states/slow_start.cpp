@@ -14,13 +14,13 @@ slow_start::update_window_size(EVENT_TYPE event)
   * decrease threshold and remain in slow start state */
   if(event == TIMEOUT)
   {
-    *threshold = *window_size / 2 ;
-    *window_size = MSS ;
+    *threshold = max(*threshold, *window_size / 2) ;
+    *window_size = 1 ;
   }
   /* acknowledgment is received, increase window size by MSS every ACK*/
   else if(event == ACK)
   {
-    *window_size += MSS ;
+    *window_size *= 2 ;
   }
 
   /* when windows reach threshold transfer state to congestion control */

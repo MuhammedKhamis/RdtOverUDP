@@ -15,7 +15,7 @@ congestion_control::update_window_size(EVENT_TYPE event)
   if(event == TIMEOUT)
   {
     *threshold = *window_size / 2 ;
-    *window_size = MSS ;
+    *window_size = 1 ;
     return next_state;
   }
   /* acknowledgement is received rather than doubling the value of cwnd every RTT,
@@ -23,7 +23,7 @@ congestion_control::update_window_size(EVENT_TYPE event)
    * just a single MSS every RTT */
   else if(event == ACK)
   {
-    *window_size += MSS * MSS / *window_size ;
+    *window_size =  min(*window_size + 1, MAX_WINDOW_SZ) ;
   }
   
   return this ;
