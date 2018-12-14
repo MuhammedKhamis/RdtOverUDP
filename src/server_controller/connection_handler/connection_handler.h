@@ -21,7 +21,8 @@ using namespace std;
 class connection_handler
 {
 	public:
-		connection_handler(struct sockaddr_in client, string file_packet, socklen_t client_len);
+		connection_handler(struct sockaddr_in client, string file_packet,
+				socklen_t client_len, float plp, int seed);
 		~connection_handler();
 		void handle_client();
 
@@ -32,6 +33,8 @@ private:
 	int socket_fd;
 	socklen_t client_len;
 	string file_dir;
+	float plp;
+	int seed;
 };
 
 #endif 

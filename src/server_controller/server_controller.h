@@ -25,7 +25,7 @@ class server_controller
 
 public:
 
-    server_controller(int port);
+    server_controller(int port, float plp, int seed);
     bool init_server();
     void run_server();
 
@@ -33,6 +33,8 @@ protected:
 
 private:
     uint16_t port_no;
+    float plp;
+    int seed;
     int socket_fd;
 
 	

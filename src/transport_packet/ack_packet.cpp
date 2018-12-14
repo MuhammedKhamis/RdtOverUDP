@@ -12,24 +12,6 @@ ack_packet::ack_packet(uint32_t ackno, uint16_t len, uint16_t checksum)
 
 }
 
-uint16_t ack_packet::calc_checksum() {
-    /*
-     string whole_package = this->to_string() ;
-  vector<string> tokens = packet_parser::tokenize(whole_package, "\r\n" ) ;
-  reverse(tokens.begin(),tokens.end()) ;
-  tokens.pop_back();
-  reverse(tokens.begin(),tokens.end()) ;
-
-  string with_out_checksum = "" ;
-  for(string s : tokens){
-    with_out_checksum += s ;
-  }
-
-  return checksum_calculator::get_checksum(with_out_checksum) ;
-  */
-    return 0;
-}
-
 ack_packet::~ack_packet() {
 
 }

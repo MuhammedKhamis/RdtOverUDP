@@ -11,8 +11,6 @@
 
 using namespace std;
 
-
-
 /* class definition */
 /******************************************/
 class data_packet : public packet
@@ -32,7 +30,6 @@ class data_packet : public packet
 
     string to_string();
 
-    uint16_t calc_checksum();
 };
 
 #endif 

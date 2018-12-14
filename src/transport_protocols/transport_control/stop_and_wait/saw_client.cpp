@@ -30,17 +30,22 @@ void saw_client::implement()
 
         // 02. parse packet
         data_packet *curr_pkt = packet_parser::create_datapacket(data_string);
+        data_packet comp_pkt(curr_pkt->get_seqno(), curr_pkt->get_data());
 
-        // 03. send ACK
-        ack_packet ack(curr_pkt->get_seqno());
-        string ack_string = ack.to_string();
+        if(checksum_calculator::validate(curr_pkt->get_checksum(), comp_pkt.get_checksum())){
+            // packet is valid;
 
-        p_handler->send(ack_string);
+            // 03. send ACK
+            ack_packet ack(curr_pkt->get_seqno());
+            string ack_string = ack.to_string();
 
-        // 03. add packet to list
-        received_packets->push_back(curr_pkt);
+            p_handler->send(ack_string);
 
-        // 04. update variables
-        received_pkt_count++;
+            // 03. add packet to list
+            received_packets->push_back(curr_pkt);
+
+            // 04. update variables
+            received_pkt_count++;
+        }
     }
 }

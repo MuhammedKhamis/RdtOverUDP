@@ -50,7 +50,7 @@ public:
     sr_server(port_handler *p);
 
     //interface methods
-    void init(vector<data_packet*> &data_packets);
+    void init(float plp, int seed, vector<data_packet*> &data_packets);
     void implement();
 };
 

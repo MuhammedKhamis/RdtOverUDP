@@ -8,8 +8,14 @@
 #include <cstdint>
 #include <string>
 #include "../packet.h"
+#include <cstdint>
+#include <string>
+#include <vector>
+#include <bitset>
+#include "text_handler.h"
 
 using namespace std ;
+
 
 class checksum_calculator {
 

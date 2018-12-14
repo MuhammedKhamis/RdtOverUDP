@@ -39,6 +39,21 @@ string packet::handle_number_sz(uint32_t num, int expected) {
     return str_num;
 }
 
+uint16_t packet::calc_checksum() {
+
+    string whole_package = to_string() ;
+    vector<string> tokens = text_handler::tokenize(whole_package, "\r\n" );
+
+    string with_out_checksum = "" ;
+    for(int i = 1 ; i < tokens.size(); i++){
+        with_out_checksum += tokens[i];
+        if(i+1 < tokens.size()){
+            with_out_checksum += "\r\n";
+        }
+    }
+    check_sum = checksum_calculator::get_checksum(with_out_checksum) ;
+    return check_sum;
+}
 
 string
 packet::stringfy_header() {
@@ -49,6 +64,3 @@ packet::stringfy_header() {
     res += "\r\n";
     return res;
 }
-
-/* interface methods */
-/******************************************/

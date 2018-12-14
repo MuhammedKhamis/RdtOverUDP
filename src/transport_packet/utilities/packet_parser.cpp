@@ -1,8 +1,4 @@
-#include <stdexcept>
 #include "packet_parser.h"
-#include <constants.h>
-
-
 
 // -- Data in packets structure
 
@@ -21,42 +17,6 @@
 
 /* interface methods */
 /******************************************/
-
-int packet_parser::get_line_data(stringstream* s, string header) {
-  /*
-  string token;
-  *s >> token ;
-  if(token != header)
-    throw std::invalid_argument( "Wrong packet format" );
-  *s >> token ;
-  if(token != ":")
-    throw std::invalid_argument( "Wrong packet format" );
-  *s >> token ;
-  try
-  {
-    return  boost::lexical_cast<int>(token);
-  }
-  catch(...) {
-    throw std::invalid_argument( "Wrong packet format" );
-  }
-  */
-}
-
-vector<string> packet_parser::tokenize(string s, string delimiter) {
-
-  vector<string> tokens ;
-  size_t pos = 0;
-  std::string token;
-  while ((pos = s.find(delimiter)) != std::string::npos) {
-    token = s.substr(0, pos);
-    tokens.push_back(token);
-    s.erase(0, pos + delimiter.length());
-  }
-  tokens.push_back(s) ;
-  return tokens ;
-
-}
-
 tuple<uint16_t ,uint16_t, uint32_t> packet_parser::get_header_info(vector<string> &tokens) {
   uint16_t checksum = (uint16_t)get_token_value(tokens[CS_IDX]);
   uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
@@ -84,7 +44,7 @@ uint32_t packet_parser::get_token_value(string line) {
 
 
 data_packet *packet_parser::create_datapacket(string data) {
-  vector<string> tokens = tokenize(data, DELM);
+  vector<string> tokens = text_handler::tokenize(data, DELM);
 
   tuple<uint32_t ,uint16_t ,uint16_t > res = get_header_info(tokens);
   uint32_t seqno = get<SEQ_IDX>(res);
@@ -102,7 +62,7 @@ data_packet *packet_parser::create_datapacket(string data) {
 }
 
 ack_packet *packet_parser::create_ackpacket(string data) {
-  vector<string> tokens = tokenize(data, DELM);
+  vector<string> tokens = text_handler::tokenize(data, DELM);
 
   tuple<uint32_t ,uint16_t ,uint16_t > res = get_header_info(tokens);
   uint32_t seqno = get<SEQ_IDX>(res);
@@ -126,18 +86,9 @@ pair<string, string> packet_parser::seperate_headers_data(string data) {
   return {headers,file_data} ;
 }
 
-vector<string> packet_parser::divide_data_size(string data , int size = 500){
-  vector<string> data_divide;
-  for(int i = 0 ; i < data.size() ; i += size){
-    string chunk = data.substr(i, size) ;
-    data_divide.push_back(chunk) ;
-}
-
-  return data_divide ;
-}
 
 int packet_parser::get_packet_length(string data) {
-    vector<string> tokens = tokenize(data, DELM);
+    vector<string> tokens = text_handler::tokenize(data, DELM);
     uint16_t len = (uint16_t)get_token_value(tokens[LEN_IDX]);
   return len;
 }

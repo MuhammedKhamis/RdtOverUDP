@@ -6,6 +6,7 @@
 #include <vector>
 #include "stop_and_wait.h"
 #include "../../../transport_packet/data_packet.h"
+#include "../../../utilities/random_generator.h"
 
 using namespace std;
 
@@ -18,13 +19,14 @@ class saw_server : public stop_and_wait
 	private:
 		// attributes
 		vector<data_packet*> data_packets;
+		random_generator rg;
 
 	public:
 		// constructor
 		saw_server(port_handler *p);
 		
 		//interface methods
-		void init(vector<data_packet*> &data_packets);
+		void init(float plp, int seed, vector<data_packet*> &data_packets);
 		void implement();
 		
 };

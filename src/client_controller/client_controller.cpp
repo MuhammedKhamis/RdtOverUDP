@@ -44,7 +44,7 @@ int
 client_controller::get_remote_file(string file_name) {
 
 	// 01. send request (file name)
-    data_packet request(0, string(file_name));
+    data_packet request(0, file_name);
     p_handler->send(request.to_string());
 
     // 02. receive ack
@@ -58,7 +58,7 @@ client_controller::get_remote_file(string file_name) {
 
 	// 02. implement strategy
     vector<data_packet*> received_packets;
-    sr_client *strategy = new sr_client(p_handler); // ------> implement
+    auto *strategy = new sr_client(p_handler); // ------> implement
     strategy->init(expected_packets_count, &received_packets);
     strategy->implement();
     // sort packets ------------------------------------------->> implement

@@ -1,13 +1,4 @@
-//
-// Created by abdelrhman on 12/8/18.
-//
-
-#include <cstdint>
-#include <string>
-#include <vector>
-#include <bitset>
 #include "checksum_calculator.h"
-#include "packet_parser.h"
 
 checksum_calculator::checksum_calculator() {}
 
@@ -15,12 +6,14 @@ checksum_calculator::checksum_calculator() {}
 uint16_t  checksum_calculator::get_checksum(string chunk) {
 
   // divide each chunk to 16-bit pieces (two character)
-  vector<string> to_sum = packet_parser::divide_data_size(chunk, 2) ;
+  vector<string> to_sum = text_handler::divide_data_size(chunk, 2) ;
 
   // sum all 16-bit words
   bitset<16> checksum(0) ;
   for( string s : to_sum ) {
-    bitset<16> str_bits(s) ;
+    bitset<8> first(s[0]);
+    bitset<8> second(s[1]);
+    bitset<16> str_bits (first.to_ulong() * 0x100 + second.to_ulong());
     checksum = bitset<16>(checksum.to_ulong() + str_bits.to_ulong()) ;
   }
 

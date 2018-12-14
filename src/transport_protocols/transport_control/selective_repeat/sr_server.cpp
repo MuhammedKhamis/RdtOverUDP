@@ -11,17 +11,15 @@ sr_server::sr_server(port_handler *p) : selective_repeat(p) {
 /* interface method */
 /******************************************/
 
-void sr_server::init(vector<data_packet*> &data_packets) {
-    p_window = packet_window(INIT_WIN_LEN);
+void sr_server::init(float plp, int seed, vector<data_packet*> &data_packets) {
+
     this->data_packets = data_packets;
     ack_packet ak(data_packets.size());
     p_handler->send(ak.to_string());
     pkts_status.resize(data_packets.size());
 
     // setting the random generator for packet loss.
-    rg = random_generator(0.1, 5, data_packets.size());
-
-    cout << "data length: " << data_packets.size() << endl;
+    rg = random_generator(plp, seed, data_packets.size());
 }
 
 /* interface method */
@@ -50,14 +48,14 @@ sr_server::send_packet(int seq_no)
 
     // send packet to client
     pkts_status[seq_no].status = SENT;
-    time(&(pkts_status[seq_no].start_time));
+    time(&((pkts_status[seq_no]).start_time));
 
     if(rg.can_send(seq_no)) {
         // will send if it's defined as loss.
         p_handler->send(curr_pkt->to_string());
-        cout << "Packet with seqno = " << seq_no << " will be sent.\n";
+        //cout << "Packet with seqno = " << seq_no << " will be sent.\n";
     }else{
-        cout << "Packet with seqno = " << seq_no << " will be lost.\n";
+        //cout << "Packet with seqno = " << seq_no << " will be lost.\n";
     }
 }
 
@@ -84,6 +82,7 @@ void sr_server::send_handler() {
 
             //nothing to do.
             if(pkts_status[i].status == ACKED){
+                //new_window_size = cg.update_window_size(ACK);
                 continue;
             }
 
@@ -96,14 +95,15 @@ void sr_server::send_handler() {
             time(&curr_time);
             if(difftime(curr_time, pkts_status[i].start_time) > PKT_LOSS_TIMEOUT){
                 //PKT loss
+                cout << "Loss at seq: " << i << endl;
+                cout << "time diff = " << curr_time - pkts_status[i].start_time << endl;
                 send_packet(i);
-                new_window_size = cg.update_window_size(TIMEOUT);
+                //new_window_size = cg.update_window_size(TIMEOUT);
                 continue;
             }
         }
 
         while (pkts_status[base].status == ACKED && base < number_pkts){
-            new_window_size = cg.update_window_size(ACK);
             base++;
         }
         window_size = new_window_size;

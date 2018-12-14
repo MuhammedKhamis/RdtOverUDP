@@ -7,6 +7,8 @@
 #include <string>
 #include <bits/stdc++.h>
 #include <constants.h>
+#include "../utilities/text_handler.h"
+#include "utilities/checksum_calculator.h"
 
 using namespace std;
 
@@ -23,7 +25,7 @@ protected:
     uint16_t length;
     uint32_t seq_no;
     string stringfy_header();
-    virtual uint16_t calc_checksum() = 0 ;
+    uint16_t calc_checksum() ;
 
   public:
     // constructor

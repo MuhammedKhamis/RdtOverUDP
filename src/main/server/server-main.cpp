@@ -12,7 +12,7 @@ main(int argc, char const *argv[])
 {
 
     chdir("../../../data/server/");
-    server_controller sc(8000);
+    server_controller sc(8000, 0.0, 5);
     if(sc.init_server()){
         sc.run_server();
     }

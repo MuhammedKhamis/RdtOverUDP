@@ -28,7 +28,7 @@ string packet_manager::assemble_data(vector<data_packet*> packet_queue) {
 vector<data_packet*> packet_manager::disassemble_data(string data, uint32_t seq_no) {
   // sequence number starts from zero for each packet
   // parser divide data to chunks
-  vector<string> chunks = packet_parser::divide_data_size(data, DATA_SZ) ;
+  vector<string> chunks = text_handler::divide_data_size(data, DATA_SZ) ;
 
   vector<data_packet*> packets;
   for(string chunk : chunks) {

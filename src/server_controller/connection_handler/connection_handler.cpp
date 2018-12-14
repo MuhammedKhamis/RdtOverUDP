@@ -1,5 +1,5 @@
 #include <io_handler.h>
-#include <packet.h>
+#include "../../transport_packet/packet.h"
 #include "../../transport_packet/utilities/packet_manager.h"
 #include <data_packet.h>
 #include <port_handler.h>
@@ -10,8 +10,10 @@
 /* constructor */
 /******************************************/
 
-connection_handler::connection_handler(struct sockaddr_in client, string file_packet, socklen_t client_len)
-        : curr_client(client), file_packet(file_packet), client_len(client_len) {
+connection_handler::connection_handler(struct sockaddr_in client, string file_packet,
+        socklen_t client_len, float plp, int seed)
+        : curr_client(client), file_packet(file_packet),
+        client_len(client_len), plp(plp), seed(seed) {
 
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
@@ -44,6 +46,13 @@ connection_handler::handle_client()
 
     int len = io_handler::getFileSize(file_name);
 
+    if(len == -1){
+        // 404 File not found.
+        cout << "File not found\n";
+        delete file_info;
+        return;
+    }
+
     char *data = (char*)malloc(len);
 
     // 01. read file from disk
@@ -58,10 +67,12 @@ connection_handler::handle_client()
     // send number of packets as ack packet
 
     // 03. implement RDT strategy
-    sr_server *strategy = new sr_server(p);
-    strategy->init(file_packets);
+    auto *strategy = new sr_server(p);
+    strategy->init(plp, seed, file_packets);
 	strategy->implement();
     free(data);
+
+    delete file_info;
     delete strategy;
 }
 

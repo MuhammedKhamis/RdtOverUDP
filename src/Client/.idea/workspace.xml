@@ -14,9 +14,30 @@
     <list default="true" id="33c08028-c7be-4a4b-9b43-2a7891a9791b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client_controller/client_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client_controller/client_controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main/client/client-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/client/client-main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main/server/server-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/server/server-main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/ack_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/ack_packet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/data_packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/data_packet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/packet.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/packet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_manager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="458">
+              <caret line="99" selection-start-line="99" selection-end-line="99" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
@@ -40,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../main/client/client-main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="352">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
                 <element signature="e#64#88#0" expanded="true" />
               </folding>
@@ -53,82 +74,82 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp">
+        <entry file="file://$PROJECT_DIR$/../client_controller/client_controller.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="531">
+              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp">
+        <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+            <state relative-caret-position="373">
+              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
               <folding>
-                <element signature="e#133#150#0" expanded="true" />
+                <element signature="e#105#123#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.h">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="22">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../utilities/constants.h">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="770">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+            <state relative-caret-position="517">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
-                <element signature="e#109#126#0" expanded="true" />
+                <element signature="e#111#128#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -141,6 +162,7 @@
       <find>Got</find>
       <find>sr_client</find>
       <find>sr</find>
+      <find>Tammam</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,33 +180,34 @@
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/stop_and_wait.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/selective_repeat.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/selective_repeat.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" />
-        <option value="$PROJECT_DIR$/../transport_packet/packet.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.h" />
         <option value="$PROJECT_DIR$/../utilities/io_handler.h" />
         <option value="$PROJECT_DIR$/../utilities/io_handler.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" />
         <option value="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h" />
         <option value="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.cpp" />
         <option value="$PROJECT_DIR$/../transport_packet/data_packet.h" />
         <option value="$PROJECT_DIR$/../transport_packet/utilities/packet_parser.h" />
-        <option value="$PROJECT_DIR$/../transport_packet/data_packet.cpp" />
         <option value="$PROJECT_DIR$/../transport_packet/ack_packet.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.h" />
         <option value="$PROJECT_DIR$/../client_controller/client_controller.h" />
-        <option value="$PROJECT_DIR$/../client_controller/client_controller.cpp" />
-        <option value="$PROJECT_DIR$/../main/client/client-main.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/utilities/packet_window.cpp" />
         <option value="$PROJECT_DIR$/../utilities/port_handler.h" />
         <option value="$PROJECT_DIR$/../utilities/port_handler.cpp" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" />
         <option value="$PROJECT_DIR$/../utilities/random_generator.h" />
         <option value="$PROJECT_DIR$/../utilities/constants.h" />
         <option value="$PROJECT_DIR$/../utilities/random_generator.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" />
+        <option value="$PROJECT_DIR$/../transport_packet/data_packet.cpp" />
+        <option value="$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp" />
+        <option value="$PROJECT_DIR$/../transport_packet/packet.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp" />
+        <option value="$PROJECT_DIR$/../main/client/client-main.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
+        <option value="$PROJECT_DIR$/../client_controller/client_controller.cpp" />
       </list>
     </option>
   </component>
@@ -200,6 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,11 +235,15 @@
               <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
+            <path>
+              <item name="RdtServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,18 +293,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56363000" />
+    <option name="totallyTimeSpent" value="62183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27086788" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27418464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -295,13 +323,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="data_string.size()" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -369,13 +390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_packet/packet.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/packet_manager.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -390,13 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/stop_and_wait.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -408,20 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -453,13 +446,6 @@
           <folding>
             <element signature="e#111#128#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -509,31 +495,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_packet/data_packet.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_packet/ack_packet.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
@@ -574,23 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client_controller/client_controller.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1298">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/5/iostream">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1606">
@@ -602,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
           <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -638,7 +579,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
+        <state relative-caret-position="352">
           <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
@@ -652,7 +593,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="484">
           <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
         </state>
       </provider>
@@ -683,7 +624,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
+        <state relative-caret-position="1078">
           <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding>
             <element signature="e#109#126#0" expanded="true" />
@@ -701,23 +642,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_packet/data_packet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bitset">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="1395" selection-start-line="1395" selection-end-line="1395" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_packet/packet.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_packet/utilities/checksum_calculator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <element signature="e#105#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#111#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_server.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../main/client/client-main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#64#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="458">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../main/client/client-main.cpp">
+    <entry file="file://$PROJECT_DIR$/../client_controller/client_controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="e#64#88#0" expanded="true" />
-          </folding>
+          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
         </state>
       </provider>
     </entry>

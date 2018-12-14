@@ -43,8 +43,8 @@ void sr_client::implement()
         received_seq_no.insert(pkt_seq_no);
 
         received_pkt_count++;
-        usleep(1000);
     }
+
     cout << "End of implement\n";
 
 }
