@@ -26,3 +26,7 @@ congestion_controller::update_window_size(EVENT_TYPE event)
 	curr_state = curr_state->update_window_size(event);
 	return window_size;
 }
+
+int congestion_controller::get_curr_window_size() {
+	return window_size;
+}

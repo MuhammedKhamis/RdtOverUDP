@@ -70,8 +70,10 @@ connection_handler::handle_client()
     auto *strategy = new sr_server(p);
     strategy->init(plp, seed, file_packets);
 	strategy->implement();
-    free(data);
 
+    strategy->print_window_size_analysis();
+
+	free(data);
     delete file_info;
     delete strategy;
 }

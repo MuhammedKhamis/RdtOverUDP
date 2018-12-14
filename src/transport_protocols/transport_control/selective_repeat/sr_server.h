@@ -10,16 +10,17 @@
 #include "../../../transport_packet/data_packet.h"
 #include "../../transport_control/utilities/packet_window.h"
 #include "../../../utilities/random_generator.h"
+#include <congestion_control/congestion_controller.h>
+#include "../../../utilities/random_generator.h"
 
 
 using namespace std;
-#define PKT_LOSS_TIMEOUT 1 // in seconds
-#define INIT_WIN_LEN 30
+#define PKT_LOSS_TIMEOUT 100000 // in seconds
 
 struct pkt_in{
-    pkt_in() : status(NOT_SEND) {}
+    pkt_in() : status(NOT_SEND), start_time(clock()) {}
     PKT_STATUS status;
-    time_t start_time;
+    clock_t start_time;
 };
 
 
@@ -34,8 +35,10 @@ private:
     packet_window p_window;
     int implementation_done_flag = 0; // used to kick
     pthread_t send_id, recv_id;
-    pthread_mutex_t print_lock;
+    pthread_mutex_t lock;
     random_generator rg;
+    congestion_controller cg;
+
 
     // utility methods
     void send_packet(int index);

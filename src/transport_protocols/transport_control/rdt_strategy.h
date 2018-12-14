@@ -17,11 +17,13 @@ class rdt_strategy
 	protected:
 		// attributes
 		port_handler *p_handler;
+		vector<int> window_size_analysis;
 		
 	public:
 		// constructor
 		rdt_strategy(port_handler *p);
 		virtual ~rdt_strategy() = default;
+		void print_window_size_analysis();
 
 		// interface methods
 		virtual void implement() = 0;

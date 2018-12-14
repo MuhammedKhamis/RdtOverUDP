@@ -1,11 +1,9 @@
-#include <congestion_control/congestion_controller.h>
-#include "../../../utilities/random_generator.h"
 #include "sr_server.h"
 
 /* constructor */
 /******************************************/
 sr_server::sr_server(port_handler *p) : selective_repeat(p) {
-    pthread_mutex_init(&print_lock, NULL);
+    pthread_mutex_init(&lock, NULL);
 }
 
 /* interface method */
@@ -48,14 +46,14 @@ sr_server::send_packet(int seq_no)
 
     // send packet to client
     pkts_status[seq_no].status = SENT;
-    time(&((pkts_status[seq_no]).start_time));
+    pkts_status[seq_no].start_time = clock();
 
     if(rg.can_send(seq_no)) {
         // will send if it's defined as loss.
         p_handler->send(curr_pkt->to_string());
-        //cout << "Packet with seqno = " << seq_no << " will be sent.\n";
+        cout << "Packet with seqno = " << seq_no << " will be sent.\n";
     }else{
-        //cout << "Packet with seqno = " << seq_no << " will be lost.\n";
+        cout << "Packet with seqno = " << seq_no << " will be lost.\n";
     }
 }
 
@@ -67,22 +65,23 @@ void* sr_server::run_sender_thread(void *tmp) {
 void sr_server::send_handler() {
     int base = 0;
     int number_pkts = data_packets.size();
-    time_t curr_time;
-    int window_size = 1;
-    congestion_controller cg;
+    clock_t curr_time;
 
     while (base < number_pkts){
 
+        pthread_mutex_lock(&lock);
+
+        int window_size = cg.get_curr_window_size();
+
+        pthread_mutex_unlock(&lock);
+
         //loop the size of the window, or the remaining of not send packets
         int remaining = min(number_pkts-base, window_size);
-
-        int new_window_size = window_size;
 
         for(int i = base; ((i-base) < remaining); i++){
 
             //nothing to do.
             if(pkts_status[i].status == ACKED){
-                //new_window_size = cg.update_window_size(ACK);
                 continue;
             }
 
@@ -92,21 +91,25 @@ void sr_server::send_handler() {
                 continue;
             }
             //resending pkt in case of timeout
-            time(&curr_time);
-            if(difftime(curr_time, pkts_status[i].start_time) > PKT_LOSS_TIMEOUT){
+            curr_time = clock();
+            if((curr_time - pkts_status[i].start_time) > PKT_LOSS_TIMEOUT){
                 //PKT loss
-                cout << "Loss at seq: " << i << endl;
-                cout << "time diff = " << curr_time - pkts_status[i].start_time << endl;
                 send_packet(i);
-                //new_window_size = cg.update_window_size(TIMEOUT);
+
+                pthread_mutex_lock(&lock);
+
+                int wz = cg.update_window_size(TIMEOUT);
+                window_size_analysis.emplace_back(wz);
+
+                pthread_mutex_unlock(&lock);
+
                 continue;
             }
         }
-
         while (pkts_status[base].status == ACKED && base < number_pkts){
             base++;
         }
-        window_size = new_window_size;
+
     }
 }
 
@@ -131,14 +134,24 @@ void sr_server::recv_handler() {
         ack_packet ack(pkt_seq_no);
 
         if(checksum_calculator::validate(packet->get_checksum(), ack.get_checksum())){
-            delete packet;
 
             int exists = (received_seq_no.find(pkt_seq_no) != received_seq_no.end());
-            if(exists == 1){continue;} // packet already received
 
+            if(exists == 1){
+                delete packet;
+                continue;
+            } // packet already received
+
+
+            pthread_mutex_lock(&lock);
+
+            int wz = cg.update_window_size(ACK);
+            window_size_analysis.emplace_back(wz);
             pkts_status[pkt_seq_no].status = ACKED;
-            received_seq_no.insert(pkt_seq_no);
 
+            pthread_mutex_unlock(&lock);
+
+            received_seq_no.insert(pkt_seq_no);
             ack_pkts_counter++;
 
         }

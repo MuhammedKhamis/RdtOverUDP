@@ -24,6 +24,8 @@ class congestion_controller
 		
         // interface methods
 		int update_window_size(EVENT_TYPE);
+
+		int get_curr_window_size();
 };
 
 #endif 
