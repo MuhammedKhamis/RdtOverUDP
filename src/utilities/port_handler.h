@@ -29,7 +29,7 @@ class port_handler{
         port_handler();
         port_handler(int &socked_fd, struct sockaddr_in *else_addr,socklen_t *else_len);
 
-        void send(string data);
+        int send(string data);
         int receive(string &buffer); // blocking receive
         int receive(string &buffer, int timout); // non-blocking. timout in milli-seconds
 

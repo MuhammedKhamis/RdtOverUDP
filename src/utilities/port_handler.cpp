@@ -11,10 +11,10 @@ port_handler::port_handler(int &socked_fd, struct sockaddr_in *else_addr, sockle
         : socked_fd(socked_fd), else_addr(else_addr), else_len(else_len){
 }
 
-void port_handler::send(string data) {
+int port_handler::send(string data) {
     char* buff = (char*) data.data();
     int len = data.size();
-    writeExact(buff, len);
+    return writeExact(buff, len);
 }
 
 int port_handler::writeExact(char *buffer, int sz) {

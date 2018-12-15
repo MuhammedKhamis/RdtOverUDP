@@ -30,6 +30,8 @@ void sr_client::implement()
         data_packet *curr_pkt = packet_parser::create_datapacket(buffer);
         int pkt_seq_no = curr_pkt->get_seqno();
 
+        cout << pkt_seq_no << " Has Just arrived\n";
+
         // 03. send ACK
         ack_packet ack(pkt_seq_no);
 

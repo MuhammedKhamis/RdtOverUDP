@@ -32,7 +32,7 @@ gbn_server::implement()
         int window_size = cg.get_curr_window_size();
         window_size_analysis.emplace_back(window_size);
 
-        //loop the size of the window, or the remaining of not send packets
+        //loop the size of the window, or the remaining of not-send packets
         int remaining = min(number_pkts-base, window_size);
 
         for(; next_seq_num < (base+remaining); next_seq_num++){
@@ -41,8 +41,7 @@ gbn_server::implement()
         string buffer;
         if(p_handler->receive(buffer, window_size) == 0){
             //Timeout -> resend all again.
-            int wz = cg.update_window_size(TIMEOUT);
-            window_size_analysis.emplace_back(wz);
+            cg.update_window_size(TIMEOUT);
             next_seq_num = base;
             continue;
         }else{
@@ -54,8 +53,7 @@ gbn_server::implement()
                 if(seqno == base){
                     // expected seqno
                     base++;
-                    int wz = cg.update_window_size(ACK);
-                    window_size_analysis.emplace_back(wz);
+                    cg.update_window_size(ACK);
                 }
                 // ignore otherwise
             }
@@ -76,8 +74,8 @@ gbn_server::send_packet(int seq_no)
     // send packet to client
     if(rg.can_send(seq_no)) {
         // will send if it's defined as loss.
-        p_handler->send(curr_pkt->to_string());
-        cout << "Packet with seqno = " << seq_no << " will be sent.\n";
+        int r = p_handler->send(curr_pkt->to_string());
+        cout << "Packet with seqno = " << seq_no << " will be sent\n";
     }else{
         cout << "Packet with seqno = " << seq_no << " will be lost.\n";
     }

@@ -26,7 +26,7 @@ void gbn_client::implement()
 
         string data_string;
         // 01. BLOCKING receive
-        p_handler->receive(data_string); // blocking
+        int r = p_handler->receive(data_string); // blocking
 
         // 02. parse packet
         data_packet *curr_pkt = packet_parser::create_datapacket(data_string);
