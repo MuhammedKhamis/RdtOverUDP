@@ -47,16 +47,16 @@ void server_controller::run_server() {
         n = p.receive(buffer);
 
         // Fork to another process to handle that connection
-        pid_t child = fork();
-        if(child < 0){
+        //pid_t child = fork();
+        //if(child < 0){
             // error in fork
-        }else if(child == 0){
+        //}else if(child == 0){
             // now in child
             auto *ch = new connection_handler(cliaddr, buffer, len, plp, seed);
             ch->handle_client();
             delete ch;
             exit(EXIT_SUCCESS);
-        }
-        usleep(100);
+        //}
+        //usleep(100);
     }
 }

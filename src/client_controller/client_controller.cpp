@@ -2,6 +2,7 @@
 #include "client_controller.h"
 #include "../transport_packet/utilities/packet_manager.h"
 #include "../utilities/io_handler.h"
+#include <transport_control/go_back_n/gbn_client.h>
 
 /* constructor */
 /******************************************/
@@ -58,7 +59,7 @@ client_controller::get_remote_file(string file_name) {
 
 	// 02. implement strategy
     vector<data_packet*> received_packets;
-    auto *strategy = new sr_client(p_handler); // ------> implement
+    auto *strategy = new gbn_client(p_handler); // ------> implement
     strategy->init(expected_packets_count, &received_packets);
     strategy->implement();
     // sort packets ------------------------------------------->> implement

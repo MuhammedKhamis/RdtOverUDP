@@ -6,6 +6,7 @@
 #include <transport_control/selective_repeat/sr_server.h>
 #include "connection_handler.h"
 #include "../../transport_protocols/transport_control/stop_and_wait/saw_server.h"
+#include "../../transport_protocols/transport_control/go_back_n/gbn_server.h"
 
 /* constructor */
 /******************************************/
@@ -67,7 +68,7 @@ connection_handler::handle_client()
     // send number of packets as ack packet
 
     // 03. implement RDT strategy
-    auto *strategy = new sr_server(p);
+    auto *strategy = new gbn_server(p);
     strategy->init(plp, seed, file_packets);
 	strategy->implement();
 

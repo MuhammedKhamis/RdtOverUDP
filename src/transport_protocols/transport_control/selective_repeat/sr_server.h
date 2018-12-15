@@ -12,16 +12,10 @@
 #include "../../../utilities/random_generator.h"
 #include <congestion_control/congestion_controller.h>
 #include "../../../utilities/random_generator.h"
-
+#include "../utilities/data_structures.h"
 
 using namespace std;
 #define PKT_LOSS_TIMEOUT 100000 // in seconds
-
-struct pkt_in{
-    pkt_in() : status(NOT_SEND), start_time(clock()) {}
-    PKT_STATUS status;
-    clock_t start_time;
-};
 
 
 /* class definition */

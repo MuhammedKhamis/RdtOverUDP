@@ -1,13 +1,15 @@
-#include "saw_client.h"
+#include "gbn_client.h"
+
+
 
 /* constructor */
 /******************************************/
-saw_client::saw_client(port_handler *p) : stop_and_wait(p) {}
+gbn_client::gbn_client(port_handler *p) : go_back_n(p) {}
 
 /* init */
 /******************************************/
 void
-saw_client::init(int expected_packets_count, vector<data_packet*> *received_packets)
+gbn_client::init(int expected_packets_count, vector<data_packet*> *received_packets)
 {
     this->expected_packets_count = expected_packets_count;
     this->received_packets = received_packets;
@@ -15,13 +17,12 @@ saw_client::init(int expected_packets_count, vector<data_packet*> *received_pack
 
 /* implement strategy */
 /******************************************/
-void saw_client::implement()
+void gbn_client::implement()
 {
     int received_pkt_count = 0;
 
     while(received_pkt_count < expected_packets_count)
     {
-
 
         string data_string;
         // 01. BLOCKING receive
@@ -34,17 +35,21 @@ void saw_client::implement()
         if(checksum_calculator::validate(curr_pkt->get_checksum(), comp_pkt.get_checksum())){
             // packet is valid;
 
-            // 03. send ACK
-            ack_packet ack(curr_pkt->get_seqno());
-            string ack_string = ack.to_string();
+            // got the expected.
+            if(received_pkt_count == curr_pkt->get_seqno()){
 
-            p_handler->send(ack_string);
+                // 03. send ACK
+                ack_packet ack(curr_pkt->get_seqno());
+                string ack_string = ack.to_string();
 
-            // 03. add packet to list
-            received_packets->push_back(curr_pkt);
+                p_handler->send(ack_string);
 
-            // 04. update variables
-            received_pkt_count++;
+                // 03. add packet to list
+                received_packets->push_back(curr_pkt);
+
+                // 04. update variables
+                received_pkt_count++;
+            }
         }
     }
 }
