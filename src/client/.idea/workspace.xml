@@ -11,15 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33c08028-c7be-4a4b-9b43-2a7891a9791b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/congestion_control.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/constants.h" afterDir="false" />
-    </list>
+    <list default="true" id="33c08028-c7be-4a4b-9b43-2a7891a9791b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -309,16 +301,15 @@
       <workItem from="1544868029972" duration="9902000" />
       <workItem from="1544882272880" duration="4803000" />
       <workItem from="1544967172393" duration="3128000" />
-      <workItem from="1544990177307" duration="1152000" />
+      <workItem from="1544990177307" duration="1400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91469000" />
+    <option name="totallyTimeSpent" value="91717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28745162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
