@@ -55,6 +55,7 @@ sr_server::send_packet(int seq_no)
     }else{
         cout << "Packet with seqno = " << seq_no << " will be lost.\n";
     }
+    total_sent++;
 }
 
 void* sr_server::run_sender_thread(void *tmp) {
@@ -148,7 +149,7 @@ void sr_server::recv_handler() {
             int wz = cg.update_window_size(ACK);
             window_size_analysis.emplace_back(wz);
             pkts_status[pkt_seq_no].status = ACKED;
-
+            successful_sent++;
             pthread_mutex_unlock(&lock);
 
             received_seq_no.insert(pkt_seq_no);

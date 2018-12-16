@@ -54,6 +54,7 @@ gbn_server::implement()
                     // expected seqno
                     base++;
                     cg.update_window_size(ACK);
+                    successful_sent++;
                 }
                 // ignore otherwise
             }
@@ -77,8 +78,9 @@ gbn_server::send_packet(int seq_no)
         int r = p_handler->send(curr_pkt->to_string());
         cout << "Packet with seqno = " << seq_no << " will be sent\n";
     }else{
-        cout << "Packet with seqno = " << seq_no << " will be lost.\n";
+        cout << "Packet with seqno = " << seq_no << " will be lost\n";
     }
+    total_sent++;
 }
 
 void* gbn_server::run_sender_thread(void *tmp) {

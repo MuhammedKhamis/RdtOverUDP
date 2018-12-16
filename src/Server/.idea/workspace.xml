@@ -15,11 +15,12 @@
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../main/client/client-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/client/client-main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main/server/server-main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../main/server/server-main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server_controller/server_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server_controller/server_controller.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/port_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/port_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utilities/port_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../utilities/port_handler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,37 +35,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-516">
-              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+            <state relative-caret-position="2796">
+              <caret line="151" column="30" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="80" column="66" selection-start-line="80" selection-start-column="66" selection-end-line="80" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../server_controller/server_controller.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp">
+        <entry file="file://$PROJECT_DIR$/../main/server/server-main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../utilities/port_handler.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-814">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../utilities/port_handler.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+            <state relative-caret-position="154">
+              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
-                <element signature="e#144#168#0" expanded="true" />
+                <element signature="e#63#87#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+            <state relative-caret-position="333">
+              <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -94,7 +98,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="726">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
@@ -211,18 +215,18 @@
         <option value="$PROJECT_DIR$/../transport_protocols/congestion_control/congestion_controller.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.h" />
-        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
         <option value="$PROJECT_DIR$/../utilities/constants.h" />
         <option value="$PROJECT_DIR$/../transport_protocols/congestion_control/states/slow_start.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/rdt_strategy.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/stop_and_wait/saw_client.cpp" />
-        <option value="$PROJECT_DIR$/../server_controller/server_controller.cpp" />
-        <option value="$PROJECT_DIR$/../main/server/server-main.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp" />
-        <option value="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" />
         <option value="$PROJECT_DIR$/../utilities/port_handler.h" />
         <option value="$PROJECT_DIR$/../utilities/port_handler.cpp" />
+        <option value="$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp" />
+        <option value="$PROJECT_DIR$/../server_controller/server_controller.cpp" />
         <option value="$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp" />
+        <option value="$PROJECT_DIR$/../main/server/server-main.cpp" />
+        <option value="$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp" />
       </list>
     </option>
   </component>
@@ -238,6 +242,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,7 +258,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,12 +331,13 @@
       <workItem from="1544637696986" duration="7000" />
       <workItem from="1544720888350" duration="735000" />
       <workItem from="1544868210133" duration="4969000" />
-      <workItem from="1544882240177" duration="4743000" />
+      <workItem from="1544882240177" duration="4934000" />
+      <workItem from="1544967304467" duration="3009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116696000" />
+    <option name="totallyTimeSpent" value="119896000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -344,10 +349,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31122166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31509122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -737,22 +742,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../main/server/server-main.cpp">
+    <entry file="file://$PROJECT_DIR$/../utilities/port_handler.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#63#87#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="374">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../server_controller/server_controller.cpp">
+    <entry file="file://$PROJECT_DIR$/../utilities/port_handler.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+        <state relative-caret-position="682">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#144#168#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -761,6 +763,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
@@ -790,49 +799,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/selective_repeat/sr_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        <state relative-caret-position="2796">
+          <caret line="151" column="30" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_client.cpp">
+    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="308">
+          <caret line="80" column="66" selection-start-line="80" selection-start-column="66" selection-end-line="80" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../server_controller/server_controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../server_controller/connection_handler/connection_handler.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state relative-caret-position="333">
+          <caret line="78" column="20" lean-forward="true" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../utilities/port_handler.h">
+    <entry file="file://$PROJECT_DIR$/../main/server/server-main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        <state relative-caret-position="154">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding>
-            <element signature="e#144#168#0" expanded="true" />
+            <element signature="e#63#87#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../utilities/port_handler.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-814">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../transport_protocols/transport_control/go_back_n/gbn_server.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
         </state>
       </provider>
     </entry>

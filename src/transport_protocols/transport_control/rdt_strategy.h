@@ -8,6 +8,10 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <bits/stdc++.h>
+#include <io_handler.h>
+#include <algorithm>
+
 using namespace std;
 
 /* class definition */
@@ -18,7 +22,8 @@ class rdt_strategy
 		// attributes
 		port_handler *p_handler;
 		vector<int> window_size_analysis;
-		
+		int successful_sent;
+		int total_sent;
 	public:
 		// constructor
 		rdt_strategy(port_handler *p);

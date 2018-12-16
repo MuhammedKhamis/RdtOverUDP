@@ -14,7 +14,7 @@ main(int argc, char const *argv[])
     chdir("../../../data/client/");
 
     // some attributes
-	char file_dir[] = "c.jpg";
+	char file_dir[] = "d.pdf";
 
 	// create client obj
     client_controller client(8000);

@@ -57,6 +57,5 @@ void server_controller::run_server() {
             delete ch;
             exit(EXIT_SUCCESS);
         //}
-        //usleep(100);
     }
 }
