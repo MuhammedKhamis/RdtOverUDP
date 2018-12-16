@@ -25,8 +25,9 @@ void
 gbn_server::implement()
 {
     int number_pkts = data_packets.size();
-    int base, next_seq_num;
-    base = next_seq_num = 0;
+    int base, next_seq_num, duplicate_ack;
+    base = next_seq_num = duplicate_ack = 0;
+
     while (base < number_pkts){
 
         int window_size = cg.get_curr_window_size();
@@ -55,6 +56,13 @@ gbn_server::implement()
                     base++;
                     cg.update_window_size(ACK);
                     successful_sent++;
+                    duplicate_ack = 0;
+                }else{
+                    duplicate_ack++;
+                    if(duplicate_ack == 3){
+                        cg.update_window_size(DupACK);
+                        duplicate_ack = 0;
+                    }
                 }
                 // ignore otherwise
             }
@@ -83,47 +91,3 @@ gbn_server::send_packet(int seq_no)
     total_sent++;
 }
 
-void* gbn_server::run_sender_thread(void *tmp) {
-    ((gbn_server*) tmp)->send_handler();
-    pthread_exit(NULL);
-}
-
-void gbn_server::send_handler() {
-
-}
-
-void* gbn_server::run_receiver_thread(void *tmp) {
-    ((gbn_server*) tmp)->recv_handler();
-    pthread_exit(NULL);
-}
-
-void gbn_server::recv_handler() {
-
-    int ack_pkts_counter = 0;
-
-    while (ack_pkts_counter < data_packets.size()){
-
-        string buffer;
-        p_handler->receive(buffer);
-        ack_packet *packet = packet_parser::create_ackpacket(buffer);
-
-        // update window
-        uint32_t pkt_seq_no = packet->get_seqno();
-        ack_packet ack(pkt_seq_no);
-
-        if(checksum_calculator::validate(packet->get_checksum(), ack.get_checksum())){
-
-
-            pthread_mutex_lock(&lock);
-            // expected sequence == recv_seq_no
-            if(pkt_seq_no == ack_pkts_counter) {
-                int wz = cg.update_window_size(ACK);
-                window_size_analysis.emplace_back(wz);
-                glob_base = pkt_seq_no + 1;
-                ack_pkts_counter++;
-            }
-            pthread_mutex_unlock(&lock);
-        }
-        delete packet;
-    }
-}

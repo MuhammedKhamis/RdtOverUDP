@@ -23,11 +23,7 @@ private:
 
     // utility methods
     void send_packet(int index);
-    static void* run_sender_thread(void *tmp);
-    static void* run_receiver_thread(void *tmp);
 
-    void send_handler();
-    void recv_handler();
 
 public:
     // constructor

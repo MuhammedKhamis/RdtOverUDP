@@ -12,7 +12,7 @@ slow_start::update_window_size(EVENT_TYPE event)
 {
   /* timeout event has happened
   * decrease threshold and remain in slow start state */
-  if(event == TIMEOUT)
+  if(event == TIMEOUT || event == DupACK)
   {
     *threshold = max(*threshold, *window_size / 2) ;
     *window_size = 1 ;

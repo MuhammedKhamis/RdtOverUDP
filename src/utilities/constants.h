@@ -13,7 +13,7 @@
 #define DATA_SZ 500
 
 /* event types for congestion control */
-enum EVENT_TYPE {ACK, TIMEOUT};
+enum EVENT_TYPE {ACK, TIMEOUT, DupACK};
 
 enum PKT_STATUS {ACKED, NOT_SEND, SENT};
 
