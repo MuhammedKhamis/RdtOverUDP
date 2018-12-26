@@ -52,4 +52,4 @@ bandwidth, until loss occurs. So we implemented dynamic window, that its size in
 We provided error detection using checksum to detect transmission errors. We choose to make the checksum of 16 bits as in Internet checksum to make undetected errors very rare, but we can not guarantee completely error-free delivery because of the checksum limitations.
 
 
-** Made with love :heart: **
+**Made with love :heart:**
